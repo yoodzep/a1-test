@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+import image from "@/images/assets/crane.png";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Kicker from "@/components/fundations/elements/Kicker.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const focusAreas = [
+  {
+    title: "Renovation & Remodeling",
+    description:
+      "We approach every renovation with careful planning and attention to detail, upgrading existing spaces while protecting their integrity and long-term value.",
+  },
+  {
+    title: "Design & Construction",
+    description:
+      "From concept to completion, we deliver well-built environments that prioritise function, durability, and clean execution—without unnecessary complexity.",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standard" class="py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div>
+        <Kicker class="text-secondary-500">Our focus</Kicker>
+        <Text
+          tag="h2"
+          variant="displayMD"
+          class="font-semibold tracking-tighter mt-12 text-balance"
+        >
+          <span class="text-accent-900">We’re here </span>
+          <span class="text-secondary-500">
+            to raise the standard of construction through disciplined execution,
+            practical innovation, and responsible building.
+          </span>
+        </Text>
+        <Text tag="p" variant="textLG" class="text-base-600 mt-4">
+          Our work is guided by long-term thinking—creating spaces that perform
+          reliably today and remain relevant, efficient, and sustainable over
+          time.
+        </Text>
+        <div class="mt-12 space-y-8 text-balance">
+          {
+            focusAreas.map((area) => (
+              <div>
+                <Text
+                  tag="h3"
+                  variant="textLG"
+                  class="text-accent-900 font-semibold"
+                >
+                  {area.title}
+                </Text>
+                <Text tag="p" variant="textBase" class="text-base-600 mt-2">
+                  {area.description}
+                </Text>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <Image
+        width={1290}
+        height={920}
+        alt="Construction crane at work"
+        decoding="async"
+        loading="lazy"
+        src={image}
+        class="w-full object-cover object-center aspect-9/10"
+      />
+    </div>
+  </Wrapper>
+</section>

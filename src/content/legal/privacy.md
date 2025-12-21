@@ -3,7 +3,7 @@ page: Privacy
 pubDate: 2024-01-01
 ---
 
-# Privacy Policy
+
 
 We respect your privacy and collect only the information necessary to operate, maintain, and improve the service. This policy explains what we collect, how it’s used, and the choices you have.
 

@@ -1,0 +1,78 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import heroImage from "@/images/assets/workers.png";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Kicker from "@/components/fundations/elements/Kicker.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Sections
+import Testimonials from "@/components/customers/Testimonials.astro";
+// Components
+import ProjectCardSmall from "@/components/projects/ProjectCardSmall.astro";
+import KeenSliderProjectCard from "@/components/fundations/scripts/KeenSliderProjectCard.astro";
+// Content
+import { getCollection } from "astro:content";
+const projects = await getCollection("projects");
+projects.sort((a, b) => {
+  const featuredDiff = (b.data.featured ? 1 : 0) - (a.data.featured ? 1 : 0);
+  if (featuredDiff !== 0) return featuredDiff;
+  const yearA = Number(a.data.year) || 0;
+  const yearB = Number(b.data.year) || 0;
+  return yearB - yearA;
+});
+---
+
+<BaseLayout navTransparent={true}>
+  <section class="relative min-h-[100dvh] flex flex-col">
+    <div class="absolute inset-0 z-0">
+      <Image
+        width={1290}
+        height={920}
+        src={heroImage}
+        alt="Modern architectural building"
+        decoding="async"
+        loading="lazy"
+        class="size-full object-cover"
+      />
+      <div
+        aria-hidden="true"
+        class="absolute pointer-events-none inset-0 bg-base-950/60"
+      >
+      </div>
+    </div>
+    <div class="relative z-10 flex-1 flex flex-col">
+      <Wrapper
+        variant="standard"
+        class="flex-1 flex flex-col justify-end py-12 lg:pb-12 pt-24 lg:border-x lg:border-white/10"
+      >
+        <div class="max-w-xl text-balance">
+          <Kicker class="text-white">Our work</Kicker>
+          <Text
+            tag="h1"
+            variant="displayLG"
+            class="text-white font-semibold tracking-tight mt-12"
+          >
+            A selection of projects delivered across residential and commercial
+            sectors
+          </Text>
+          <Text tag="p" variant="textLG" class="text-white max-w-xl mt-4">
+            Explore completed projects showcasing our approach to planning,
+            execution, and build quality — across a range of scales and
+            requirements.
+          </Text>
+        </div>
+      </Wrapper>
+    </div>
+  </section>
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <div class="flex flex-col space-y-8">
+        {projects.map((project) => <ProjectCardSmall project={project} />)}
+      </div>
+    </Wrapper>
+  </section>
+  <Testimonials />
+  <KeenSliderProjectCard />
+</BaseLayout>

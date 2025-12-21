@@ -2,6 +2,7 @@
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
+import Kicker from "@/components/fundations/elements/Kicker.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Components
 import BlogCard from "@/components/blog/BlogCard.astro";
@@ -17,9 +18,22 @@ allPosts.sort((a, b) => {
 
 <BaseLayout>
   <section>
-    <Wrapper variant="standard" class="py-12 lg:py-24">
-      <Text tag="h1" variant="textBase"> Blog </Text>
-      <div class="grid grid-cols-1 lg:grid-cols-3 mt-12 gap-8">
+    <Wrapper variant="standard" class="py-24 lg:pt-48">
+      <div class="max-w-xl mx-auto text-center text-balance">
+        <Kicker class="text-secondary-500">Journal</Kicker>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="font-semibold tracking-tighter mt-12"
+        >
+          Lessons learned across planning, execution, and delivery
+        </Text>
+        <Text tag="p" variant="textLG" class="text-base-600 mt-4">
+          Articles covering construction methods, project management, safety,
+          and practical decision-making in the field.
+        </Text>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 mt-12 lg:mt-24 gap-x-8 gap-y-24">
         {allPosts.map((post) => <BlogCard post={post} />)}
       </div>
     </Wrapper>

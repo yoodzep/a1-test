@@ -2,6 +2,7 @@
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
+import Kicker from "@/components/fundations/elements/Kicker.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Components
 import TeamCard from "@/components/team/TeamCard.astro";
@@ -14,12 +15,25 @@ allTeam.sort((a, b) => {
   return nameA.localeCompare(nameB);
 });
 ---
-
 <BaseLayout>
   <section>
-    <Wrapper variant="standard" class="py-12 lg:py-24">
-      <Text tag="h1" variant="textBase"> Team </Text>
-      <div class="grid grid-cols-1 lg:grid-cols-3 mt-12 gap-8">
+    <Wrapper variant="standard" class="py-24 lg:pt-48">
+      <div class="max-w-xl mx-auto text-center text-balance">
+        <Kicker class="text-secondary-500">Our team</Kicker>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="font-semibold tracking-tighter mt-12"
+        >
+          Experienced professionals behind every successful build
+        </Text>
+        <Text tag="p" variant="textLG" class="text-base-600 mt-4">
+          Our team brings together project managers, engineers, and skilled
+          trades with a shared focus on planning, safety, and accountable
+          delivery.
+        </Text>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 mt-12 gap-x-8 gap-y-24">
         {allTeam.map((post) => <TeamCard post={post} />)}
       </div>
     </Wrapper>

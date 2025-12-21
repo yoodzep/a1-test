@@ -1,0 +1,76 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import heroImage from "@/images/assets/services.png";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Kicker from "@/components/fundations/elements/Kicker.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Sections
+import Principles from "@/components/services/Principles.astro";
+import Testimonials from "@/components/customers/Testimonials.astro";
+// Components
+import ServiceCard from "@/components/services/ServiceCard.astro";
+// Content
+import { getCollection } from "astro:content";
+const services = await getCollection("services");
+services.sort((a, b) => {
+  const featuredDiff = (b.data.featured ? 1 : 0) - (a.data.featured ? 1 : 0);
+  if (featuredDiff !== 0) return featuredDiff;
+  return a.data.title.localeCompare(b.data.title);
+});
+---
+
+<BaseLayout navTransparent={true}>
+  <section class="relative min-h-[100dvh] flex flex-col">
+    <div class="absolute inset-0 z-0">
+      <Image
+        width={1290}
+        height={920}
+        src={heroImage}
+        alt="Modern architectural building"
+        decoding="async"
+        loading="lazy"
+        class="size-full object-cover"
+      />
+      <div
+        aria-hidden="true"
+        class="absolute pointer-events-none inset-0 bg-base-950/60"
+      >
+      </div>
+    </div>
+    <div class="relative z-10 flex-1 flex flex-col">
+      <Wrapper
+        variant="standard"
+        class="flex-1 flex flex-col justify-end py-12 lg:pb-12 pt-24 lg:border-x lg:border-white/10"
+      >
+        <div class="max-w-xl text-balance">
+          <Kicker class="text-white">Our services</Kicker>
+          <Text
+            tag="h1"
+            variant="displayLG"
+            class="text-white font-semibold tracking-tight mt-12"
+          >
+            Construction services delivered with clarity, discipline, and
+            experience.
+          </Text>
+          <Text tag="p" variant="textLG" class="text-white max-w-xl mt-4">
+            We provide end-to-end construction and renovation services across
+            residential and commercial projects, with a focus on planning,
+            coordination, and build quality.
+          </Text>
+        </div>
+      </Wrapper>
+    </div>
+  </section>
+  <section>
+    <Wrapper variant="standard" class="py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-24">
+        {services.map((service) => <ServiceCard service={service} />)}
+      </div>
+    </Wrapper>
+  </section>
+  <Principles />
+  <Testimonials />
+</BaseLayout>
