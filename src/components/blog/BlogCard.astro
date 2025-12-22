@@ -4,7 +4,6 @@ import { Image } from "astro:assets";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import UnderlinedLink from "@/components/fundations/elements/UnderlinedLink.astro";
-
 // Content
 const { title, description, url, image } = {
   url: "/blog/posts/" + Astro.props.post.slug,
@@ -13,7 +12,6 @@ const { title, description, url, image } = {
   image: Astro.props.post.data.image.url,
 };
 ---
-
 <article>
   <Image
     src={image}
