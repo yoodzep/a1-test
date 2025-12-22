@@ -1,4 +1,4 @@
-# Carrington
+# Bastion
 
 ## Template Integrations
 
