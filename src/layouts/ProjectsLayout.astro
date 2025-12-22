@@ -25,18 +25,18 @@ const latestProjects = allProjects
 ---
 
 <BaseLayout navTransparent={true}>
-  <section class="relative flex flex-col bg-accent-950">
+  <section class="bg-accent-800">
     <Wrapper
       variant="standard"
       class="py-12 pt-48 lg:border-x lg:border-white/10"
     >
       <div class="grid grid-cols-1 lg:grid-cols-3 lg:items-end gap-12">
         <div class="max-w-xl text-balance lg:col-span-2">
-          <Kicker class="text-secondary-500"> {meta}</Kicker>
+          <Kicker class="text-base-300"> {meta}</Kicker>
           <Text
             tag="h1"
             variant="displayMD"
-            class="text-white font-semibold tracking-tight mt-12"
+            class="text-white font-medium tracking-tight mt-12"
           >
             {frontmatter.title}
           </Text>
@@ -48,7 +48,7 @@ const latestProjects = allProjects
           {
             frontmatter.services.map((service) => (
               <li>
-                <Text tag="p" variant="textSM" class="text-alternative-300 ">
+                <Text tag="p" variant="textBase" class="text-base-400 ">
                   {service}
                 </Text>
               </li>
@@ -57,9 +57,10 @@ const latestProjects = allProjects
         </ul>
       </div>
     </Wrapper>
-  </section>
-  <section>
-    <Wrapper variant="paddingless">
+    <Wrapper
+      variant="standard"
+      class="py-8 lg:border-x lg:border-white/10 border-t"
+    >
       <Image
         width={1400}
         height={1400}
@@ -72,23 +73,19 @@ const latestProjects = allProjects
     </Wrapper>
   </section>
   <section>
-    <Wrapper variant="standard" class="py-12">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <Wrapper variant="standard" class="py-24">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
         {
           frontmatter.metrics.map((metric) => (
-            <div class="bg-base-50 p-8 rounded pt-24 lg:pt-48">
+            <div>
               <Text
                 tag="p"
                 variant="displayLG"
-                class="text-accent-900 italic font-semibold"
+                class="text-accent-900 italic font-medium "
               >
                 {metric.value}
               </Text>
-              <Text
-                tag="p"
-                variant="textLG"
-                class="text-base-500 font-medium mt-2"
-              >
+              <Text tag="p" variant="textLG" class="text-base-600 mt-2">
                 {metric.label}
               </Text>
             </div>
@@ -99,22 +96,22 @@ const latestProjects = allProjects
   </section>
   <section>
     <Wrapper variant="standard" class="py-12">
-      <div class="bg-accent-950 p-8 rounded lg:pr-0">
+      <div>
         {
           frontmatter.gallery && (
             <div
               id="project-slider-container-gallery"
-              class="grid gird-cols-1 lg:grid-cols-3 gap-8 "
+              class="grid gird-cols-1 lg:grid-cols-4 gap-8 "
             >
-              <div class="flex flex-col h-full gap-4 justify-between  rounded order-last lg:order-first ">
+              <div class=" order-last lg:order-first p-8 bg-base-50 rounded">
                 <Text
                   tag="h3"
                   variant="displaySM"
-                  class="font-medium text-white"
+                  class="font-medium text-accent-900"
                 >
                   Gallery
                 </Text>
-                <div class="flex j gap-2 mt-4">
+                <div class="flex gap-2 mt-4">
                   <Button
                     iconOnly
                     size="xs"
@@ -136,7 +133,7 @@ const latestProjects = allProjects
                 </div>
               </div>
               <div
-                class="keen-slider lg:col-span-2"
+                class="keen-slider lg:col-span-3"
                 id="project-gallery-slider"
               >
                 <div class="keen-slider__slide">
@@ -185,14 +182,14 @@ const latestProjects = allProjects
             <Text
               tag="h2"
               variant="displaySM"
-              class="font-semibold tracking-tighter  text-accent-900"
+              class="font-medium  tracking-tight   text-accent-900"
             >
               Latest projects
             </Text>
             <Button
               isLink
               size="xs"
-              variant="default"
+              variant="muted"
               href="/projects"
               class="w-fit"
             >

@@ -5,6 +5,7 @@ import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 import Kicker from "@/components/fundations/elements/Kicker.astro";
+import UnderlinedLink from "@/components/fundations/elements/UnderlinedLink.astro";
 import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Sections
@@ -18,11 +19,14 @@ const relatedPosts = allPosts.filter((post) =>
 );
 ---
 
-<BaseLayout>
-  <section>
-    <Wrapper variant="standard" class="pt-24 lg:pt-48">
-      <div class="text-center">
-        <Kicker class="text-secondary-500">
+<BaseLayout navTransparent={true}>
+  <section class="bg-accent-800">
+    <Wrapper
+      variant="standard"
+      class="py-12 pt-48 lg:border-x lg:border-white/10"
+    >
+      <div class="max-w-xl mx-auto text-center text-balance lg:col-span-2">
+        <Kicker class="text-base-300">
           Written on
           <time datetime={new Date(frontmatter.pubDate).toISOString()}>
             {
@@ -32,50 +36,49 @@ const relatedPosts = allPosts.filter((post) =>
                 day: "2-digit",
               })
             }
-          </time>
-        </Kicker>
-
+          </time></Kicker
+        >
         <Text
           tag="h1"
           variant="displayMD"
-          class="font-semibold tracking-tighter mt-12"
+          class="font-medium tracking-tight mt-12 text-white"
         >
           {frontmatter.title}
         </Text>
-        <Text tag="p" variant="textLG" class="text-base-600 mt-4">
+        <Text tag="p" variant="textLG" class="text-base-400 mt-4">
           {frontmatter.description}
         </Text>
-        <div class="mt-12">
+        <div class="mt-12 flex flex-wrap justify-center gap-4 capitalize">
           {
             frontmatter.tags.map((tag) => (
-              <a
-                class="capitalize text-base-600 hover:text-secondary-500 font-medium"
-                href={`/blog/tags/${tag}`}
-              >
+              <UnderlinedLink variant="light" href={`/blog/tags/${tag}`}>
                 {tag}
-              </a>
+              </UnderlinedLink>
             ))
           }
         </div>
-        <Image
-          width={1400}
-          height={1400}
-          loading="lazy"
-          decoding="async"
-          src={frontmatter.image.url}
-          alt={frontmatter.image.alt}
-          class="object-cover object-center mt-12 max-h-120"
-        />
       </div>
     </Wrapper>
-    <Wrapper variant="standard" class="py-12">
-      <Wrapper variant="narrow" class="mx-auto">
-        <Wrapper variant="prose">
-          <slot />
-        </Wrapper>
+  </section>
+  <Wrapper variant="standard" class="pt-8">
+    <Image
+      width={1400}
+      height={1400}
+      loading="lazy"
+      decoding="async"
+      src={frontmatter.image.url}
+      alt={frontmatter.image.alt}
+      class="object-cover object-center max-h-120"
+    />
+  </Wrapper>
+  <Wrapper variant="standard" class="py-12">
+    <Wrapper variant="narrow" class="mx-auto">
+      <Wrapper variant="prose">
+        <slot />
       </Wrapper>
     </Wrapper>
-  </section>
+  </Wrapper>
+  <section></section>
   {
     relatedPosts.length > 0 && (
       <section>
@@ -84,18 +87,12 @@ const relatedPosts = allPosts.filter((post) =>
             <Text
               tag="h2"
               variant="displaySM"
-              class="font-semibold tracking-tighter  text-accent-900"
+              class="font-medium  tracking-tight   text-accent-900"
             >
-              Related projects
+              Related posts
             </Text>
-            <Button
-              isLink
-              size="xs"
-              variant="default"
-              href="/blog"
-              class="w-fit"
-            >
-              See all projects
+            <Button isLink size="xs" variant="muted" href="/blog" class="w-fit">
+              See all posts
             </Button>
           </div>
           <div class="grid grid-cols-1 lg:grid-cols-3 mt-12 lg:mt-24 gap-x-8 gap-y-24">

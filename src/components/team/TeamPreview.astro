@@ -1,6 +1,4 @@
 ---
-// Assets
-import Logo from "@/components/assets/Logo.astro";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
@@ -20,15 +18,12 @@ allTeam.sort((a, b) => {
 <section>
   <Wrapper variant="standard" class="py-24">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-24">
-      <div
-        class="gap-4 flex flex-col h-full bg-alternative-300 p-8 justify-between"
-      >
+      <div class="gap-4 flex flex-col h-full bg-accent-500 p-8 justify-between">
         <div>
-          <Logo class="h-12 text-white" />
           <Text
             tag="h2"
             variant="displaySM"
-            class="font-semibold tracking-tighter text-accent-900 mt-2"
+            class="font-medium tracking-tight text-white mt-2"
           >
             Meet our team
           </Text>

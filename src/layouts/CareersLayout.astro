@@ -27,44 +27,28 @@ const meta = [
 ---
 
 <BaseLayout navTransparent={true}>
-  <section class="relative min-h-[100dvh] flex flex-col">
-    <div class="absolute inset-0 z-0">
-      <Image
-        width={1290}
-        height={920}
-        src={heroImage}
-        alt="Modern architectural building"
-        decoding="async"
-        loading="lazy"
-        class="size-full object-cover"
-      />
-      <div
-        aria-hidden="true"
-        class="absolute pointer-events-none inset-0 bg-base-950/60"
-      >
-      </div>
-    </div>
+  <section class="bg-accent-800">
     <div class="relative z-10 flex-1 flex flex-col">
       <Wrapper
         variant="standard"
-        class="flex-1 flex flex-col justify-end py-12 lg:pb-12 pt-24 lg:border-x lg:border-white/10"
+        class="py-12 pt-48 lg:border-x lg:border-white/10"
       >
         <div class="max-w-xl text-balance">
           <Kicker class="text-white"> {frontmatter.department}</Kicker>
           <Text
             tag="h1"
-            variant="displayLG"
-            class="text-white font-semibold tracking-tight mt-12"
+            variant="displayMD"
+            class="font-medium tracking-tight mt-12 text-white"
           >
             {frontmatter.title}
           </Text>
-          <Text tag="p" variant="textLG" class="text-white max-w-xl mt-4">
+          <Text tag="p" variant="textLG" class="text-base-200 mt-4">
             {frontmatter.description}
           </Text>
           <Button
             isLink={true}
             href={frontmatter.applyUrl}
-            size="base"
+            size="xs"
             variant="muted"
             class="w-fit mt-12"
           >
@@ -99,19 +83,19 @@ const meta = [
         </div>
         <div>
           <aside class="lg:sticky lg:top-32 p-8 bg-accent-900 w-full rounded">
-            <Logo class="h-12 lg:h-24 text-white" />
+            <Logo class="h-8 text-white" />
 
             <div class="mt-12 lg:mt-62">
-              <Text tag="h2" variant="textXL" class="text-alternative-400">
+              <Text tag="h2" variant="textXL" class="text-accent-400">
                 Other opportunities
               </Text>
               <ul class="space-y-2 mt-8">
                 {
                   otherCareers.map((career) => (
-                    <li>w
+                    <li>
                       <a
                         href={`/careers/${career.slug}`}
-                        class="text-white hover:text-secondary-500 font-medium"
+                        class="text-base-300 transition hover:text-white"
                       >
                         {career.data.title}
                       </a>

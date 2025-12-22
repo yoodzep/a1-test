@@ -12,7 +12,7 @@ const { title, description, url, department } = {
 };
 ---
 
-<details class="pb-8 border-b border-base-200 group">
+<details class="pb-8 border-b border-base-200 group relative">
   <summary class="cursor-pointer list-none">
     <a
       href={url}
@@ -43,9 +43,9 @@ const { title, description, url, department } = {
         href={url}
         title={`View role: ${title}`}
         aria-label={`View role: ${title}`}
-        class="lg:ml-auto text-accent-900 hover:text-secondary-500 font-medium text-lg flex items-center gap-2 group"
+        class="lg:ml-auto text-accent-900 hover:text-accent-500 font-medium text-lg flex items-center gap-2 group"
       >
-        <span>View project</span>
+        <span>View position</span>
         <ArrowUpRight
           slot="icon"
           size="sm"

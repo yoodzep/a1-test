@@ -19,38 +19,36 @@ const latestServices = allServices
 ---
 
 <BaseLayout navTransparent={true}>
-  <section class="bg-accent-900">
+  <section class="bg-accent-800">
     <Wrapper
       variant="standard"
       class="py-12 pt-48 lg:border-x lg:border-white/10"
     >
-      <div class="grid grid-cols-1 lg:grid-cols-3 lg:items-end gap-12">
-        <div class="max-w-xl text-balance lg:col-span-2">
-          <Kicker class="text-secondary-500">{frontmatter.excerpt}</Kicker>
-          <Text
-            tag="h1"
-            variant="displayMD"
-            class="text-white font-semibold tracking-tight mt-12"
-          >
-            {frontmatter.title}
-          </Text>
-          <Text tag="p" variant="textLG" class="text-white max-w-xl mt-4">
-            {frontmatter.description}
-          </Text>
-        </div>
-
-        <ul role="list" class="space-y-1 list-none">
-          {
-            frontmatter.highlights?.map((highlight) => (
-              <li>
-                <Text tag="p" variant="textBase" class="text-alternative-300">
-                  {highlight}
-                </Text>
-              </li>
-            ))
-          }
-        </ul>
+      <div class="max-w-xl text-balance lg:col-span-2">
+        <Kicker class="text-base-300">{frontmatter.title}</Kicker>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="text-white font-medium tracking-tight mt-12"
+        >
+          {frontmatter.excerpt}
+        </Text>
+        <Text tag="p" variant="textbas" class="text-base-300 max-w-xl mt-4">
+          {frontmatter.description}
+        </Text>
       </div>
+
+      <ul role="list" class="space-y-1 list-none mt-12">
+        {
+          frontmatter.highlights?.map((highlight, index) => (
+            <li>
+              <Text tag="p" variant="textSM" class="text-base-300">
+                {index + 1}. {highlight}
+              </Text>
+            </li>
+          ))
+        }
+      </ul>
     </Wrapper>
   </section>
 
@@ -82,14 +80,14 @@ const latestServices = allServices
             <Text
               tag="h2"
               variant="displaySM"
-              class="font-semibold tracking-tighter  text-accent-900"
+              class="font-medium  tracking-tight   text-accent-900"
             >
               Latest services
             </Text>
             <Button
               isLink
               size="xs"
-              variant="default"
+              variant="muted"
               href="/services"
               class="w-fit"
             >

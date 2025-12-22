@@ -63,7 +63,7 @@ const navLinks = [
           navLinks.map((l) => (
             <a
               href={l.href}
-              class={`text-sm font-medium transition ${isTransparent ? "text-white " : "text-base-800"}`}
+              class={`text-sm transition ${isTransparent ? "text-white " : "text-base-800"}`}
               data-primary-link
             >
               {l.label}
@@ -75,7 +75,7 @@ const navLinks = [
         <Search />
         <Button
           isLink
-          size="sm"
+          size="xs"
           variant="muted"
           href="https://buy.polar.sh/polar_cl_i4pEWDCILawXwqsTqrnidqYy7YZJ7Z3ncWHcR24AEaN"
           class="hidden lg:flex"

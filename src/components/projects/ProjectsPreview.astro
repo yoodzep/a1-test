@@ -20,13 +20,15 @@ projects.sort((a, b) => {
 <section>
   <Wrapper variant="standard" class="py-24">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-12">
-      <div class="bg-accent-900 p-8 flex flex-col h-full justify-between">
+      <div
+        class="bg-accent-900 rounded p-8 flex flex-col h-full justify-between"
+      >
         <div>
           <Logo class="h-8 w-fit text-white" />
           <Text
             tag="h2"
             variant="displaySM"
-            class="font-semibold tracking-tighter mt-12 lg:mt-24 text-white"
+            class="font-medium tracking-tight mt-12 lg:mt-24 text-white"
           >
             Recent builds that balance performance, craft, and longevity.
           </Text>
@@ -37,7 +39,7 @@ projects.sort((a, b) => {
         </div>
         <Button
           isLink
-          size="base"
+          size="xs"
           variant="muted"
           href="/projects"
           class="mt-8 w-fit">See all projects</Button

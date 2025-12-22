@@ -4,7 +4,7 @@
 @plugin "tailwind-scrollbar-hide";
 @theme {
   /* Typography */
-  --font-sans: "Satoshi", sans-serif;
+  --font-sans: "Inter", sans-serif;
   /* Accent */
   --color-accent-50: oklch(0.957 0.017 250.83);
   --color-accent-100: oklch(0.914 0.034 249.56);
@@ -17,30 +17,7 @@
   --color-accent-800: oklch(0.283 0.047 242.67);
   --color-accent-900: oklch(0.188 0.031 241.68);
   --color-accent-950: oklch(0.148 0.024 241.32);
-  /* Alternative */
-  --color-alternative-50: oklch(0.966 0.008 224.96);
-  --color-alternative-100: oklch(0.929 0.018 228.96);
-  --color-alternative-200: oklch(0.851 0.039 226.09);
-  --color-alternative-300: oklch(0.781 0.049 225.71);
-  --color-alternative-400: oklch(0.704 0.044 225.91);
-  --color-alternative-500: oklch(0.634 0.04 225.39);
-  --color-alternative-600: oklch(0.532 0.033 224.26);
-  --color-alternative-700: oklch(0.437 0.027 225.46);
-  --color-alternative-800: oklch(0.335 0.021 225.93);
-  --color-alternative-900: oklch(0.241 0.015 226.79);
-  --color-alternative-950: oklch(0.186 0.011 229.69);
-  /* Secondary */
- --color-secondary-50: oklch(0.968 0.014 22.88);
-  --color-secondary-100: oklch(0.926 0.035 22.24);
-  --color-secondary-200: oklch(0.862 0.069 25.25);
-  --color-secondary-300: oklch(0.788 0.113 26.56);
-  --color-secondary-400: oklch(0.716 0.164 30.07);
-  --color-secondary-500: oklch(0.649 0.207 34.82);
-  --color-secondary-600: oklch(0.545 0.174 34.86);
-  --color-secondary-700: oklch(0.448 0.143 34.99);
-  --color-secondary-800: oklch(0.349 0.112 34.63);
-  --color-secondary-900: oklch(0.241 0.076 35.14);
-  --color-secondary-950: oklch(0.195 0.062 34.18);
+
   /* Base */
   --color-base-50: oklch(0.985 0 0);
   --color-base-100: oklch(0.97 0 0);
@@ -53,4 +30,11 @@
   --color-base-800: oklch(0.269 0 0);
   --color-base-900: oklch(0.205 0 0);
   --color-base-950: oklch(0.145 0 0);
+}
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+@supports (font-variation-settings: normal) {
+  :root { font-family: InterVariable, sans-serif; }
 }

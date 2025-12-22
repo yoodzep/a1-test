@@ -8,15 +8,22 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 
 <BaseLayout hideNavigation={true} hideFooter={true}>
   <section class="min-h-dvh flex items-center justify-center bg-accent-950">
-    <Wrapper variant="standard" class="flex flex-col items-center py-32 text-balance">
+    <Wrapper
+      variant="standard"
+      class="flex flex-col items-center py-32 text-balance"
+    >
       <Text
         tag="h1"
         variant="displayXL"
-        class="font-bold text-white mb-4 tracking-tight"
+        class="font-bold text-white tracking-tight"
       >
         404
       </Text>
-      <Text tag="h2" variant="displaySM" class="text-secondary-500 font-meidum">
+      <Text
+        tag="h2"
+        variant="displaySM"
+        class="text-accent-500 font-medium mt-4"
+      >
         Page not found
       </Text>
       <Text
@@ -28,7 +35,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
         you think this is an error, please let us know—or head back to the
         homepage.
       </Text>
-      <Button isLink={true} href="/" size="base" variant="muted" class="mt-12">
+      <Button isLink={true} href="/" size="xs" variant="muted" class="mt-12">
         Go back home
       </Button>
     </Wrapper>
