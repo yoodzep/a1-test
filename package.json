@@ -11,6 +11,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "shiki": "^1.22.2",
+    "oniguruma-to-es": "^4.3.4",
     "@astrojs/mdx": "^4.3.13",
     "@astrojs/rss": "^4.0.14",
     "@astrojs/sitemap": "^3.6.0",
