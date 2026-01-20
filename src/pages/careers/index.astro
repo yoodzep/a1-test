@@ -3,29 +3,63 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 import Kicker from "@/components/fundations/elements/Kicker.astro";
+import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Icons
 import Check from "@/components/fundations/icons/Check.astro";
-// Components
-import CareerCard from "@/components/careers/CareerCard.astro";
-// Content
-import { getCollection } from "astro:content";
-const allCareers = await getCollection("careers");
+import { Image } from "astro:assets";
+import careersImage from "@/images/a1-electrical/Careers (2).png";
+
 const benefits = [
+  "Company vehicle provided",
+  "iPhone and iPad for work",
+  "Tool allowance",
+  "Birthday day off",
+  "Ongoing training and development",
+  "Supportive team environment",
+  "Work-life balance focus",
+  "Competitive salary package",
+];
+
+const opportunities = [
   {
-    title: "Career Growth",
-    description:
-      "We invest in your future with comprehensive training programs, dedicated mentorship, and structured advancement opportunities that help you reach your full potential.",
+    title: "Qualified Electricians",
+    type: "Full-time",
+    salary: "$35 - $43 per hour",
+    description: "We're looking for experienced, qualified electricians to join our team. You'll work on a variety of residential and commercial projects across Dunedin and Otago.",
+    requirements: [
+      "NZ Electrical Registration",
+      "Full driver's licence",
+      "Minimum 2 years post-qualification experience",
+      "Strong communication skills",
+      "Commitment to safety and quality",
+    ],
   },
   {
-    title: "Supportive Team",
-    description:
-      "Work alongside passionate professionals in an environment that values collaboration, innovation, and mutual respect, creating a workplace where everyone can thrive.",
+    title: "Electrical Apprentices",
+    type: "Full-time / Apprenticeship",
+    salary: "Competitive apprentice rates",
+    description: "Start your career in the electrical trade with A1 Electrical. We provide comprehensive training and mentorship to help you become a skilled electrician.",
+    requirements: [
+      "NCEA Level 2 or equivalent",
+      "Driver's licence (learner's minimum)",
+      "Enthusiasm to learn",
+      "Good work ethic",
+      "Reliable and punctual",
+    ],
   },
   {
-    title: "Strong Benefits",
-    description:
-      "Enjoy competitive compensation, excellent health coverage, flexible work arrangements, and generous paid time off that supports your well-being and work-life harmony.",
+    title: "Electrical Inspectors",
+    type: "Full-time / Part-time",
+    salary: "Negotiable based on experience",
+    description: "Experienced inspectors wanted to join our team conducting pre-purchase inspections, compliance checks, and safety assessments.",
+    requirements: [
+      "Current Electrical Inspector registration",
+      "Strong attention to detail",
+      "Excellent report writing skills",
+      "Customer service focus",
+      "Own vehicle preferred",
+    ],
   },
 ];
 ---
@@ -36,46 +70,149 @@ const benefits = [
       variant="standard"
       class="py-12 pt-48 lg:border-x lg:border-white/10"
     >
-      <div class="max-w-4xl text-balance lg:col-span-2">
-        <Kicker class="text-base-300">Careers</Kicker>
-        <Text
-          tag="h1"
-          variant="displayMD"
-          class="font-medium tracking-tight mt-12 text-white"
-        >
-          Build a career defined by accountability, skill, and real-world impact
-        </Text>
-        <Text tag="p" variant="textLG" class="text-base-400 mt-4">
-          Join a team that values disciplined execution, safety on every site,
-          and craftsmanship that stands up to scrutiny.
-        </Text>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="max-w-xl text-balance">
+          <Kicker class="text-base-300">Join the A1 Electrical Crew</Kicker>
+          <Text
+            tag="h1"
+            variant="displayMD"
+            class="font-medium tracking-tight mt-12 text-white"
+          >
+            Build your career with Dunedin's trusted electrical team
+          </Text>
+          <Text tag="p" variant="textLG" class="text-base-400 mt-4">
+            We're always looking for skilled electricians and motivated apprentices who share our commitment to quality, safety, and customer service.
+          </Text>
+        </div>
+        <div>
+          <Image
+            src={careersImage}
+            alt="A1 Electrical team at work"
+            width={600}
+            height={400}
+            class="rounded-lg"
+          />
+        </div>
       </div>
     </Wrapper>
   </section>
+
   <section>
     <Wrapper variant="standard" class="py-24">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {
-          benefits.map((benefit) => (
-            <div class="p-8 rounded bg-base-50 ">
-              <div class="flex items-center gap-2 text-accent-900">
-                <div class="size-8 bg-accent-500 text-white flex items-center justify-center rounded-full">
-                  <Check size="sm" />
-                </div>
-                <Text tag="h3" variant="textXL" class="font-medium">
-                  {benefit.title}
-                </Text>
-              </div>
-              <Text tag="p" variant="textBase" class="text-base-600 mt-4">
-                {benefit.description}
-              </Text>
-            </div>
-          ))
-        }
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div>
+          <Kicker class="text-base-600">Why Work at A1 Electrical</Kicker>
+          <Text
+            tag="h2"
+            variant="displayMD"
+            class="font-medium tracking-tight mt-12"
+          >
+            More than just a job
+          </Text>
+        </div>
+        <div class="lg:col-span-2">
+          <Text tag="p" variant="textLG" class="text-base-600">
+            A1 Electrical is a family business where you're treated as part of the team, not just a number. We value our people and invest in their growth and wellbeing.
+          </Text>
+          <Text tag="p" variant="textLG" class="text-base-600 mt-4">
+            Our team enjoys a supportive work environment, variety in their work, and the satisfaction of delivering quality results for our customers.
+          </Text>
+        </div>
       </div>
 
-      <div class="flex flex-col mt-12 lg:mt-24 space-y-8">
-        {allCareers.map((career) => <CareerCard career={career} />)}
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+        {benefits.map((benefit) => (
+          <div class="bg-base-50 rounded-lg p-4 flex items-center gap-3">
+            <div class="size-8 bg-accent-500 text-white flex items-center justify-center rounded-full flex-shrink-0">
+              <Check size="sm" />
+            </div>
+            <Text tag="span" variant="textBase" class="text-accent-900 font-medium">
+              {benefit}
+            </Text>
+          </div>
+        ))}
+      </div>
+    </Wrapper>
+  </section>
+
+  <section class="bg-base-50">
+    <Wrapper variant="standard" class="py-24">
+      <div class="max-w-3xl">
+        <Kicker class="text-base-600">Current Opportunities</Kicker>
+        <Text
+          tag="h2"
+          variant="displayMD"
+          class="font-medium tracking-tight mt-12"
+        >
+          Join our growing team
+        </Text>
+        <Text tag="p" variant="textLG" class="text-base-600 mt-4">
+          We're currently looking for talented people to fill the following positions. Even if you don't see the perfect role, we'd love to hear from you.
+        </Text>
+      </div>
+
+      <div class="space-y-8 mt-12">
+        {opportunities.map((job) => (
+          <div class="bg-white rounded-lg p-8">
+            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+              <div>
+                <Text tag="h3" variant="textXL" class="font-medium text-accent-900">
+                  {job.title}
+                </Text>
+                <div class="flex flex-wrap gap-2 mt-2">
+                  <span class="bg-accent-100 text-accent-700 px-3 py-1 rounded-full text-sm">
+                    {job.type}
+                  </span>
+                  <span class="bg-base-100 text-base-700 px-3 py-1 rounded-full text-sm">
+                    {job.salary}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <Text tag="p" variant="textBase" class="text-base-600 mt-4">
+              {job.description}
+            </Text>
+            <div class="mt-6">
+              <Text tag="p" variant="textSM" class="font-medium text-accent-900 mb-3">
+                Requirements:
+              </Text>
+              <ul class="space-y-2">
+                {job.requirements.map((req) => (
+                  <li class="flex items-start gap-2">
+                    <svg class="h-5 w-5 text-accent-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <Text tag="span" variant="textSM" class="text-base-600">{req}</Text>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Wrapper>
+  </section>
+
+  <section class="bg-accent-950">
+    <Wrapper variant="standard" class="py-24">
+      <div class="text-center max-w-2xl mx-auto">
+        <Text tag="h2" variant="displayMD" class="font-medium text-white">
+          Ready to join the team?
+        </Text>
+        <Text tag="p" variant="textLG" class="text-base-400 mt-4">
+          Send us your CV and a brief cover letter telling us about yourself and why you'd like to work at A1 Electrical.
+        </Text>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+          <Button isLink size="base" variant="default" href="mailto:admin@a1electrical.co.nz?subject=Job Application">
+            Apply Now
+          </Button>
+          <Button isLink size="base" variant="muted" href="tel:021453193">
+            Call 021 453 193
+          </Button>
+        </div>
+        <Text tag="p" variant="textSM" class="text-base-500 mt-6">
+          Email your application to admin@a1electrical.co.nz
+        </Text>
       </div>
     </Wrapper>
   </section>

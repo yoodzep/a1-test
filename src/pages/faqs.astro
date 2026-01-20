@@ -1,0 +1,186 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Kicker from "@/components/fundations/elements/Kicker.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+const faqCategories = [
+  {
+    title: "Safety & Compliance",
+    faqs: [
+      {
+        question: "Are you licensed and insured?",
+        answer: "Yes, A1 Electrical is fully licensed, registered, and insured. We're Master Electricians with Gold SiteWise certification, demonstrating our commitment to safety and professional standards."
+      },
+      {
+        question: "Do you provide compliance certificates?",
+        answer: "Yes, all completed electrical work includes the appropriate compliance documentation as required by NZ regulations. This includes Certificates of Compliance (COC) for prescribed electrical work."
+      },
+      {
+        question: "What safety standards do you follow?",
+        answer: "We follow all relevant New Zealand electrical safety standards, including AS/NZS 3000 (Wiring Rules), and maintain Gold SiteWise certification for health and safety management."
+      },
+      {
+        question: "Can you inspect my home's electrical system?",
+        answer: "Yes, we offer comprehensive electrical inspections for safety assessments, pre-purchase reports, landlord compliance, and insurance requirements. We provide detailed reports with clear recommendations."
+      },
+    ]
+  },
+  {
+    title: "Payment & Finance",
+    faqs: [
+      {
+        question: "What payment methods do you accept?",
+        answer: "We accept cash, cheque, bank transfer, and all major credit cards. For larger projects, we can arrange progress payments."
+      },
+      {
+        question: "Do you offer finance options?",
+        answer: "Yes, we partner with MTF Finance to offer flexible payment options for larger projects. This allows you to spread the cost of electrical work over time. Visit our Finance Options page for more details."
+      },
+      {
+        question: "Do you accept SuperGold Card?",
+        answer: "Yes, we're proud to accept SuperGold Cards. Card holders receive a discount on our services. Just mention your SuperGold Card when booking."
+      },
+      {
+        question: "Do you provide free quotes?",
+        answer: "Yes, we provide free, no-obligation quotes for most jobs. For complex projects requiring detailed assessment, there may be a call-out fee which is credited against the work if you proceed."
+      },
+    ]
+  },
+  {
+    title: "Trade Accounts",
+    faqs: [
+      {
+        question: "Do you offer trade accounts?",
+        answer: "Yes, we offer trade accounts for builders, property managers, and commercial clients with regular electrical needs. Trade accounts include 20th of month following invoice payment terms."
+      },
+      {
+        question: "What are the benefits of a trade account?",
+        answer: "Trade account holders receive monthly invoicing, priority scheduling, and a dedicated contact for project coordination. It's ideal for businesses with ongoing electrical requirements."
+      },
+      {
+        question: "How do I apply for a trade account?",
+        answer: "Contact our office to request a trade account application. We'll need business details and trade references. Once approved, you can start using your account immediately."
+      },
+    ]
+  },
+  {
+    title: "Services",
+    faqs: [
+      {
+        question: "What areas do you service?",
+        answer: "We service Dunedin and the wider Otago region, including Mosgiel, Port Chalmers, and surrounding areas. For locations further afield, please contact us to discuss availability."
+      },
+      {
+        question: "Do you handle emergencies?",
+        answer: "Yes, we offer after-hours emergency services for urgent electrical issues. Call our after-hours number (03 453 0415) for emergencies outside normal business hours."
+      },
+      {
+        question: "Do you work on commercial properties?",
+        answer: "Yes, we provide comprehensive commercial electrical services including fit-outs, maintenance, and upgrades for businesses, retail, hospitality, and industrial clients."
+      },
+      {
+        question: "Can you install heat pumps?",
+        answer: "Yes, we supply and install quality heat pumps from leading brands. We can advise on the right size and type for your space and handle the complete installation."
+      },
+      {
+        question: "Do you do smart home installations?",
+        answer: "Yes, we install smart lighting, home automation systems, security wiring, and structured cabling. We can help modernise your home with the latest technology."
+      },
+    ]
+  },
+  {
+    title: "Service Areas",
+    faqs: [
+      {
+        question: "Do you travel outside Dunedin?",
+        answer: "Yes, we regularly work throughout Otago including Mosgiel, Port Chalmers, Waikouaiti, Brighton, and surrounding areas. Travel charges may apply for distant locations."
+      },
+      {
+        question: "Is there a call-out fee?",
+        answer: "For standard service calls within Dunedin, we have a minimum call-out charge. This covers travel time and the first portion of work. We'll always be upfront about any charges before starting work."
+      },
+      {
+        question: "How quickly can you respond?",
+        answer: "For standard work, we typically schedule within a few days depending on workload. For urgent issues, we do our best to respond same-day or next business day. Emergencies are prioritised."
+      },
+    ]
+  },
+];
+---
+
+<BaseLayout>
+  <section class="bg-accent-800">
+    <Wrapper variant="standard" class="py-12 pt-48 lg:border-x lg:border-white/10">
+      <div class="max-w-4xl">
+        <Kicker class="text-base-400">Frequently Asked Questions</Kicker>
+        <Text
+          tag="h1"
+          variant="displayLG"
+          class="font-medium tracking-tight mt-12 text-white"
+        >
+          Got questions? We've got answers.
+        </Text>
+        <Text tag="p" variant="textLG" class="text-base-400 mt-4">
+          Find answers to common questions about our services, pricing, and processes. Can't find what you're looking for? Contact us directly.
+        </Text>
+      </div>
+    </Wrapper>
+  </section>
+
+  <section>
+    <Wrapper variant="standard" class="py-24">
+      <div class="space-y-16">
+        {faqCategories.map((category) => (
+          <div>
+            <Text tag="h2" variant="displaySM" class="font-medium text-accent-900 mb-8">
+              {category.title}
+            </Text>
+            <div class="space-y-4">
+              {category.faqs.map((faq) => (
+                <details class="group bg-base-50 rounded-lg">
+                  <summary class="flex cursor-pointer items-center justify-between p-6 font-medium text-accent-900 hover:bg-base-100 rounded-lg transition-colors">
+                    <span class="pr-4">{faq.question}</span>
+                    <span class="flex-shrink-0 ml-4 transition-transform group-open:rotate-180">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="px-6 pb-6">
+                    <Text tag="p" variant="textBase" class="text-base-600">
+                      {faq.answer}
+                    </Text>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-24 bg-accent-950 rounded-lg p-8 lg:p-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div>
+            <Text tag="h2" variant="displaySM" class="font-medium text-white">
+              Still have questions?
+            </Text>
+            <Text tag="p" variant="textLG" class="text-base-400 mt-4">
+              We're here to help. Get in touch and we'll be happy to answer any questions you have about our services.
+            </Text>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4 lg:justify-end">
+            <Button isLink size="base" variant="default" href="/contact">
+              Contact Us
+            </Button>
+            <Button isLink size="base" variant="muted" href="tel:021453193">
+              Call 021 453 193
+            </Button>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

@@ -9,21 +9,21 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 const contactDetails = [
   {
     label: "Address",
-    value: ["24 Industrial Way", "London, E16 2AB", "United Kingdom"],
+    value: ["405 Kaikorai Valley Road", "Dunedin 9011"],
   },
   {
     label: "Phone",
-    value: ["+44 20 7946 0123"],
-    href: "tel:+442079460123",
+    value: ["021 453 193"],
+    href: "tel:021453193",
   },
   {
-    label: "Email",
-    value: ["info@yourcompany.co.uk"],
-    href: "mailto:info@yourcompany.co.uk",
+    label: "After Hours",
+    value: ["03 453 0415"],
+    href: "tel:034530415",
   },
   {
     label: "Office hours",
-    value: ["Monday–Friday, 8:00–17:00"],
+    value: ["Monday - Friday, 7:30 AM - 5:00 PM"],
   },
 ];
 ---
@@ -36,7 +36,7 @@ const contactDetails = [
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-y-8 gap-x-20">
       <div class="bg-accent-600 p-8 lg:-mt-26 z-10 relative overflow-hidden">
         <div class="relative flex flex-col justify-between h-full">
-          <Logo class="h-12 w-fit text-white" />
+          <Logo class="h-16 w-fit" />
           <div>
             <Text
               tag="h2"
@@ -56,7 +56,7 @@ const contactDetails = [
                     >
                       {detail.label}
                     </Text>
-                    <Text tag="p" variant="textBase" class="mt-1  text-white">
+                    <Text tag="p" variant="textBase" class="mt-1 text-white">
                       {detail.value.map((line, index) => (
                         <>
                           {detail.href ? (
@@ -91,16 +91,14 @@ const contactDetails = [
           variant="displayMD"
           class="text-white font-medium tracking-tight mt-12"
         >
-          Let’s discuss your project.
+          Let's discuss your electrical project.
         </Text>
         <Text
           tag="p"
           variant="textBase"
           class="text-base-300 mt-4 text-balance"
         >
-          Whether you’re planning a new build, renovation, or commercial
-          project, we’re ready to review your requirements and provide clear,
-          practical next steps.
+          Whether you're building new, renovating, or need repairs, we're ready to provide expert advice and a clear quote for your electrical needs.
         </Text>
         <Button
           isLink
@@ -109,7 +107,7 @@ const contactDetails = [
           href="/contact"
           class="w-fit mt-8"
         >
-          Send us a message
+          Request a quote
         </Button>
       </div>
     </div>

@@ -1,13 +1,11 @@
 ---
 // Astro
 import { Image } from "astro:assets";
-// Images
-import davidAvatar from "@/images/testimonials/david.png";
-import emilyAvatar from "@/images/testimonials/emily.png";
-import lisaAvatar from "@/images/testimonials/lisa.png";
-import michaelAvatar from "@/images/testimonials/michael.png";
-import robertAvatar from "@/images/testimonials/robert.png";
-import saraAvatar from "@/images/testimonials/sara.png";
+// Images - using general images as placeholders
+import generalImage1 from "@/images/a1-electrical/General - 1.png";
+import generalImage2 from "@/images/a1-electrical/General  - 2.png";
+import generalImage3 from "@/images/a1-electrical/General - 3.png";
+import generalImage4 from "@/images/a1-electrical/General - 4.png";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Kicker from "@/components/fundations/elements/Kicker.astro";
@@ -20,51 +18,35 @@ import Star from "@/components/fundations/icons/Star.astro";
 const testimonials = [
   {
     quote:
-      "Bastion delivered our home build exactly as promised. Clear timelines, consistent communication, and quality workmanship throughout. The attention to detail on-site was evident from start to finish.",
-    author: "Sarah Johnson",
+      "A1 Electrical rewired our entire 1920s villa. The team was professional, tidy, and explained everything clearly. They even helped us understand the best options for our budget. Highly recommend!",
+    author: "Sarah Mitchell",
     role: "Homeowner",
-    location: "Austin, TX",
-    avatar: saraAvatar,
+    location: "Dunedin",
+    avatar: generalImage1,
   },
   {
     quote:
-      "Our office renovation was completed on schedule and without disruption to daily operations. Bastion managed the process professionally and delivered a space that works better for our team.",
-    author: "Michael Chen",
-    role: "CEO",
-    location: "San Francisco, CA",
-    avatar: michaelAvatar,
+      "We've used A1 Electrical for all our commercial properties for over 10 years. Reliable, fairly priced, and they always complete jobs on time. Darren and his team are true professionals.",
+    author: "James Thompson",
+    role: "Property Manager",
+    location: "Dunedin",
+    avatar: generalImage2,
   },
   {
     quote:
-      "Bastion handled our hotel build with precision and accountability. They understood the operational requirements of hospitality and delivered a result that met both design and durability standards.",
-    author: "Emma Rodriguez",
-    role: "Hotel Owner",
-    location: "Santa Fe, NM",
-    avatar: emilyAvatar,
+      "The heat pump installation was quick and efficient. The team cleaned up after themselves and took the time to show us how to use the system properly. Great service from start to finish.",
+    author: "Helen Roberts",
+    role: "Homeowner",
+    location: "Mosgiel",
+    avatar: generalImage3,
   },
   {
     quote:
-      "From permitting to final handover, Bastion ran our restaurant project efficiently and transparently. The build quality is solid, and the project stayed on budget.",
-    author: "David Park",
-    role: "Restaurant Owner",
-    location: "Portland, OR",
-    avatar: davidAvatar,
-  },
-  {
-    quote:
-      "Bastion translated our retail requirements into a practical, well-executed build. The team was responsive, organized, and delivered a space that performs as well as it looks.",
-    author: "Lisa Thompson",
-    role: "Retail Owner",
-    location: "Seattle, WA",
-    avatar: lisaAvatar,
-  },
-  {
-    quote:
-      "Their experience in commercial construction shows. Bastion took control of a complex renovation and delivered a modern, functional workspace without unnecessary delays or surprises.",
-    author: "Robert Martinez",
-    role: "Operations Director",
-    location: "Denver, CO",
-    avatar: robertAvatar,
+      "A1 Electrical handled the complete electrical fit-out for our new cafe. They worked around our schedule and delivered excellent results. We couldn't be happier with the outcome.",
+    author: "David Chen",
+    role: "Business Owner",
+    location: "Dunedin",
+    avatar: generalImage4,
   },
 ];
 ---
@@ -73,8 +55,7 @@ const testimonials = [
   <Wrapper variant="standard" class="py-24">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
       <Kicker class="text-base-600 text-balance">
-        A construction partner trusted by homeowners, developers, and commercial
-        clients alike
+        Trusted by families and businesses throughout Dunedin and Otago
       </Kicker>
 
       <div class="lg:col-span-2">
@@ -83,8 +64,7 @@ const testimonials = [
           variant="displayMD"
           class="font-medium tracking-tight text-balance"
         >
-          Real projects, real partners, and results delivered through
-          disciplined planning and execution.
+          Real customers, real projects, and quality electrical work delivered with care.
         </Text>
         <div class="flex items-center gap-2 mt-8">
           <Button
@@ -112,19 +92,19 @@ const testimonials = [
       {
         testimonials.map((testimonial) => (
           <article class="keen-slider__slide">
-            <div class="group relative h-full overflow-hidden transition duration-300 ">
+            <div class="group relative h-full overflow-hidden transition duration-300">
               <div class="relative aspect-3/4 overflow-hidden">
                 <Image
                   width={500}
                   height={800}
                   src={testimonial.avatar}
-                  alt={`${testimonial.author} portrait`}
+                  alt={`${testimonial.author} project`}
                   loading="lazy"
                   decoding="async"
                   class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                 />
                 <div class="absolute inset-0 flex flex-col justify-between bg-accent-900 p-8 opacity-0 transition duration-300 group-hover:opacity-100">
-                  <div class="flex items-center gap-1 ">
+                  <div class="flex items-center gap-1">
                     {Array.from({ length: 5 }).map((_, index) => (
                       <Star aria-hidden="true" class="size-4 text-accent-400" />
                     ))}
@@ -132,17 +112,17 @@ const testimonials = [
                   <Text
                     tag="blockquote"
                     variant="textSM"
-                    class="text-base-300  lg:text-lg  leading-relaxed mt-4"
+                    class="text-base-300 lg:text-lg leading-relaxed mt-4"
                   >
                     {testimonial.quote}
                   </Text>
                 </div>
               </div>
-              <div class=" mt-2">
+              <div class="mt-2">
                 <Text
                   tag="p"
                   variant="textBase"
-                  class="text-accent-900 font-medium "
+                  class="text-accent-900 font-medium"
                 >
                   {testimonial.author}
                 </Text>
@@ -151,7 +131,7 @@ const testimonials = [
                   variant="textSM"
                   class="text-base-500 font-medium"
                 >
-                  {testimonial.role}
+                  {testimonial.role}, {testimonial.location}
                 </Text>
               </div>
             </div>

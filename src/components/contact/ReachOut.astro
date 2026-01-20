@@ -5,19 +5,19 @@ import Kicker from "@/components/fundations/elements/Kicker.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 const items = [
   {
-    title: "Get personalized solutions",
+    title: "Free quotes",
     description:
-      "Our expert team is here to carefully listen to your unique needs and offer tailored solutions that truly bring your vision to life.",
+      "Get a clear, no-obligation quote for your electrical project. We'll assess your needs and provide honest, upfront pricing.",
   },
   {
-    title: "Discuss your project",
+    title: "Expert advice",
     description:
-      "Whether you're starting fresh or refining an existing project, we're ready to help you every step of the way.",
+      "Our experienced team can help you understand your options and make informed decisions about your electrical work.",
   },
   {
-    title: "Quick response time",
+    title: "Fast response",
     description:
-      "We value your time and ensure a fast response to your inquiries so you get clear answers quickly.",
+      "We value your time and aim to respond to all enquiries within one business day. For emergencies, call our after-hours line.",
   },
 ];
 ---
@@ -25,14 +25,14 @@ const items = [
 <section>
   <Wrapper variant="standard" class="py-24">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-      <Kicker class="text-base-600">How to reach us</Kicker>
+      <Kicker class="text-base-600">Why contact us</Kicker>
       <Text
         tag="h2"
         variant="displayMD"
         class="font-medium tracking-tight text-balance lg:col-span-2"
       >
-        Get in touch with us and let's collaborate to bring your vision to life
-        <span class="text-accent-500"> with expert solutions and support!</span>
+        Get in touch and let us help with your electrical project
+        <span class="text-accent-500"> with expert advice and quality workmanship!</span>
       </Text>
     </div>
     <div
@@ -44,7 +44,7 @@ const items = [
             <Text
               tag="h3"
               variant="textLG"
-              class="font-medium  text-accent-900"
+              class="font-medium text-accent-900"
             >
               {item.title}
             </Text>

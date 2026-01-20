@@ -10,9 +10,9 @@ import BlogCard from "@/components/blog/BlogCard.astro";
 import { getCollection } from "astro:content";
 const allPosts = await getCollection("posts");
 allPosts.sort((a, b) => {
-  const dateA = new Date(a.data.pubDate).getTime(); // Convert to timestamp
-  const dateB = new Date(b.data.pubDate).getTime(); // Convert to timestamp
-  return dateB - dateA; // Compare timestamps
+  const dateA = new Date(a.data.pubDate).getTime();
+  const dateB = new Date(b.data.pubDate).getTime();
+  return dateB - dateA;
 });
 ---
 
@@ -23,26 +23,33 @@ allPosts.sort((a, b) => {
       class="py-12 pt-48 lg:border-x lg:border-white/10"
     >
       <div class="max-w-xl mx-auto text-center text-balance lg:col-span-2">
-        <Kicker class="text-base-300">journal</Kicker>
+        <Kicker class="text-base-300">Blog</Kicker>
         <Text
           tag="h1"
           variant="displayMD"
           class="font-medium tracking-tight mt-12 text-white"
         >
-          Lessons learned across planning, execution, and delivery
+          Electrical tips, advice, and industry news
         </Text>
         <Text tag="p" variant="textLG" class="text-base-400 mt-4">
-          Articles covering construction methods, project management, safety,
-          and practical decision-making in the field.
+          Helpful articles about electrical safety, energy efficiency, and keeping your home or business powered safely.
         </Text>
       </div>
     </Wrapper>
   </section>
   <section>
     <Wrapper variant="standard" class="py-24">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-24">
-        {allPosts.map((post) => <BlogCard post={post} />)}
-      </div>
+      {allPosts.length > 0 ? (
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-24">
+          {allPosts.map((post) => <BlogCard post={post} />)}
+        </div>
+      ) : (
+        <div class="text-center py-12">
+          <Text tag="p" variant="textLG" class="text-base-600">
+            Blog posts coming soon. Check back for helpful electrical tips and advice.
+          </Text>
+        </div>
+      )}
     </Wrapper>
   </section>
 </BaseLayout>

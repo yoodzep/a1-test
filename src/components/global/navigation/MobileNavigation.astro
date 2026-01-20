@@ -24,7 +24,7 @@ const { navLinks } = Astro.props;
           navLinks.map((link) => (
             <a
               href={link.href}
-              class="block text-accent-900 text-xl font-medium  focus:text-white  transition"
+              class="block text-accent-900 text-xl font-medium focus:text-white transition"
             >
               {link.label}
             </a>
@@ -32,8 +32,12 @@ const { navLinks } = Astro.props;
         }
       </nav>
       <div class="space-y-2 mt-12">
-        <Button size="sm" variant="default" class="w-full">Buy Bastion</Button>
-        <Button size="sm" variant="muted" class="w-full">Contact us</Button>
+        <Button isLink size="sm" variant="default" href="tel:021453193" class="w-full">
+          Call 021 453 193
+        </Button>
+        <Button isLink size="sm" variant="muted" href="/contact" class="w-full">
+          Contact Us
+        </Button>
       </div>
     </div>
   </Wrapper>

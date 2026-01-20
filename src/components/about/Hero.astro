@@ -2,7 +2,7 @@
 // Assets
 import Logo from "@/components/assets/Logo.astro";
 import { Image } from "astro:assets";
-import heroImage from "@/images/assets/team.png";
+import heroImage from "@/images/a1-electrical/General - 3.png";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Kicker from "@/components/fundations/elements/Kicker.astro";
@@ -16,28 +16,27 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
   >
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-y-8 gap-x-20">
       <div class="lg:col-span-2 text-balance">
-        <Kicker class="text-accent-300">Built for you</Kicker>
+        <Kicker class="text-accent-300">Meet the Team Behind A1 Electrical</Kicker>
         <Text
           tag="h1"
           variant="displayLG"
           class="text-white font-medium tracking-tight mt-12"
         >
-          Everyday building with purpose and precision
+          Locally owned, professionally certified, community proud
         </Text>
         <Text tag="p" variant="textLG" class="text-base-400 max-w-xl mt-4">
-          We deliver high-quality construction through expert planning, skilled
-          craftsmanship, and dependable execution.
+          A1 Electrical is a family-owned business serving Dunedin and Otago since 1984. We're committed to quality workmanship, honest service, and supporting our local community.
         </Text>
       </div>
       <div
         class="bg-accent-600 p-8 lg:-mb-26 z-10 relative overflow-hidden lg:order-first"
       >
         <div class="relative flex flex-col justify-between h-full">
-          <Logo class="h-12 w-fit text-white" />
+          <Logo class="h-16 w-fit" />
           <div class="font-medium tracking-tight text-white mt-12 space-y-8">
-            <Text tag="p" variant="displaySM"> Reliability </Text>
-            <Text tag="p" variant="displayMD"> Accountability </Text>
-            <Text tag="p" variant="displayLG"> Consistency </Text>
+            <Text tag="p" variant="displaySM">Quality</Text>
+            <Text tag="p" variant="displayMD">Integrity</Text>
+            <Text tag="p" variant="displayLG">Community</Text>
           </div>
         </div>
       </div>
@@ -48,7 +47,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
       width={1420}
       height={1420}
       src={heroImage}
-      alt="Modern architectural building"
+      alt="A1 Electrical team at work"
       decoding="async"
       loading="lazy"
       class="size-full object-cover max-h-120"

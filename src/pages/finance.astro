@@ -1,0 +1,193 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Kicker from "@/components/fundations/elements/Kicker.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import { Image } from "astro:assets";
+import financeImage from "@/images/a1-electrical/Careers or Finance Optiopns.png";
+
+const financeFeatures = [
+  {
+    title: "Flexible Terms",
+    description: "Choose repayment terms that suit your budget, from 12 to 36 months."
+  },
+  {
+    title: "Quick Approval",
+    description: "Simple application process with fast decisions so your project can proceed."
+  },
+  {
+    title: "No Hidden Fees",
+    description: "Clear, upfront terms with no surprises. Know exactly what you're paying."
+  },
+  {
+    title: "Competitive Rates",
+    description: "MTF Finance offers competitive interest rates for home improvement loans."
+  },
+];
+
+const applicationRequirements = [
+  "Valid NZ driver's licence or passport",
+  "Proof of income (payslips or bank statements)",
+  "Details of regular expenses",
+  "Quote for the electrical work",
+];
+---
+
+<BaseLayout>
+  <section class="bg-accent-800">
+    <Wrapper variant="standard" class="py-12 pt-48 lg:border-x lg:border-white/10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <Kicker class="text-base-400">Finance Options</Kicker>
+          <Text
+            tag="h1"
+            variant="displayLG"
+            class="font-medium tracking-tight mt-12 text-white"
+          >
+            Flexible finance for your electrical project
+          </Text>
+          <Text tag="p" variant="textLG" class="text-base-400 mt-4">
+            Don't let budget hold back your electrical upgrades. We've partnered with MTF Finance to offer flexible payment options that make quality electrical work accessible.
+          </Text>
+        </div>
+        <div class="relative">
+          <Image
+            src={financeImage}
+            alt="Finance options for electrical work"
+            width={600}
+            height={400}
+            class="rounded-lg"
+          />
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <section>
+    <Wrapper variant="standard" class="py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div>
+          <Kicker class="text-base-600">MTF Finance Partnership</Kicker>
+          <Text
+            tag="h2"
+            variant="displayMD"
+            class="font-medium tracking-tight mt-12"
+          >
+            Spread the cost of your electrical work
+          </Text>
+        </div>
+        <div class="lg:col-span-2">
+          <Text tag="p" variant="textLG" class="text-base-600">
+            Major electrical work like rewiring, switchboard upgrades, or heat pump installation can be a significant investment. Our finance partnership with MTF Finance allows you to spread the cost over time with manageable monthly payments.
+          </Text>
+          <Text tag="p" variant="textLG" class="text-base-600 mt-4">
+            Whether it's an urgent repair or a planned upgrade, finance options mean you don't have to compromise on quality or delay important electrical work.
+          </Text>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+        {financeFeatures.map((feature) => (
+          <div class="bg-base-50 rounded-lg p-6">
+            <Text tag="h3" variant="textLG" class="font-medium text-accent-900">
+              {feature.title}
+            </Text>
+            <Text tag="p" variant="textBase" class="text-base-600 mt-2">
+              {feature.description}
+            </Text>
+          </div>
+        ))}
+      </div>
+    </Wrapper>
+  </section>
+
+  <section class="bg-base-50">
+    <Wrapper variant="standard" class="py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <Kicker class="text-base-600">How It Works</Kicker>
+          <Text
+            tag="h2"
+            variant="displayMD"
+            class="font-medium tracking-tight mt-12"
+          >
+            Simple application process
+          </Text>
+          <Text tag="p" variant="textLG" class="text-base-600 mt-4">
+            Applying for finance is straightforward. Here's what you'll need:
+          </Text>
+          <ul class="mt-6 space-y-3">
+            {applicationRequirements.map((req) => (
+              <li class="flex items-start gap-3">
+                <svg class="h-6 w-6 text-accent-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <Text tag="span" variant="textBase" class="text-base-700">{req}</Text>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-white rounded-lg p-8">
+          <Text tag="h3" variant="textXL" class="font-medium text-accent-900">
+            Apply for Finance
+          </Text>
+          <Text tag="p" variant="textBase" class="text-base-600 mt-2">
+            Ready to get started? Contact us for a quote, then we'll guide you through the MTF Finance application process.
+          </Text>
+          <div class="mt-8 space-y-4">
+            <Button isLink size="base" variant="default" href="/contact" class="w-full">
+              Request a Quote
+            </Button>
+            <Text tag="p" variant="textSM" class="text-base-500 text-center">
+              Or call us on <a href="tel:021453193" class="text-accent-600 hover:underline">021 453 193</a>
+            </Text>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <section>
+    <Wrapper variant="standard" class="py-24">
+      <div class="max-w-3xl">
+        <Kicker class="text-base-600">SuperGold Card</Kicker>
+        <Text
+          tag="h2"
+          variant="displayMD"
+          class="font-medium tracking-tight mt-12"
+        >
+          Discounts for SuperGold Card holders
+        </Text>
+        <Text tag="p" variant="textLG" class="text-base-600 mt-4">
+          We're proud to support our senior community members. SuperGold Card holders receive a discount on our services. Simply mention your SuperGold Card when booking or show it to our electrician on the day.
+        </Text>
+        <Text tag="p" variant="textBase" class="text-base-600 mt-4">
+          The SuperGold Card discount applies to labour charges and cannot be combined with other offers or trade account pricing.
+        </Text>
+      </div>
+    </Wrapper>
+  </section>
+
+  <section class="bg-accent-950">
+    <Wrapper variant="standard" class="py-24">
+      <div class="text-center max-w-2xl mx-auto">
+        <Text tag="h2" variant="displayMD" class="font-medium text-white">
+          Ready to discuss your project?
+        </Text>
+        <Text tag="p" variant="textLG" class="text-base-400 mt-4">
+          Contact us today for a free quote. We'll discuss your requirements and explain your finance options.
+        </Text>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+          <Button isLink size="base" variant="default" href="/contact">
+            Get a Quote
+          </Button>
+          <Button isLink size="base" variant="muted" href="tel:021453193">
+            Call 021 453 193
+          </Button>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

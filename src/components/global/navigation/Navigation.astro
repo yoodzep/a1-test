@@ -4,10 +4,8 @@ import Logo from "@/components/assets/Logo.astro";
 import Close from "@/components/fundations/icons/Close.astro";
 import Burger from "@/components/fundations/icons/Burger.astro";
 // Fundations
-import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Components
-import Search from "@/components/global/Search.astro";
 import MobileNavigation from "@/components/global/navigation/MobileNavigation.astro";
 // Content
 import { getCollection } from "astro:content";
@@ -18,25 +16,14 @@ const isTransparent = !!transparent;
 const services = (await getCollection("services")).sort((a, b) =>
   a.data.title.localeCompare(b.data.title)
 );
-const posts = (await getCollection("posts"))
-  .slice()
-  .sort(
-    (a, b) =>
-      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-  )
-  .slice(0, 2);
-const projects = (await getCollection("projects"))
-  .filter((p) => p.data.featured)
-  .slice(0, 1);
 const navLinks = [
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Projects", href: "/projects" },
-  { label: "Team", href: "/team" },
+  { label: "FAQs", href: "/faqs" },
   { label: "Careers", href: "/careers" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
-  { label: "Overview", href: "/system/overview" },
 ];
 ---
 
@@ -51,10 +38,10 @@ const navLinks = [
         href="/"
         aria-label="Home"
         data-logo
-        class={`focus:outline-none text-2xl font-medium flex items-center gap-2   ${isTransparent ? "text-white" : "text-base-800"}`}
+        class={`focus:outline-none text-2xl font-medium flex items-center gap-2 ${isTransparent ? "text-white" : "text-base-800"}`}
       >
         <span class="sr-only">Home</span>
-        <Logo class="h-8" />
+        <Logo class="h-10" />
       </a>
       <div
         class="hidden lg:flex items-center justify-between gap-4 py-4 px-6 outline outline-white/10 rounded-full bg-white/5 backdrop-blur-sm lg:col-span-2"
@@ -72,16 +59,12 @@ const navLinks = [
         }
       </div>
       <div class="hidden lg:flex gap-2 items-center ml-auto">
-        <Search />
-        <Button
-          isLink
-          size="xs"
-          variant="muted"
-          href="https://buy.polar.sh/polar_cl_i4pEWDCILawXwqsTqrnidqYy7YZJ7Z3ncWHcR24AEaN"
-          class="hidden lg:flex"
+        <a
+          href="tel:021453193"
+          class={`text-sm font-medium transition hover:opacity-80 ${isTransparent ? "text-white" : "text-base-800"}`}
         >
-          Buy Bastion
-        </Button>
+          021 453 193
+        </a>
       </div>
       <button
         class={`lg:hidden ml-auto flex relative ${isTransparent ? "text-white" : "text-base-800"}`}

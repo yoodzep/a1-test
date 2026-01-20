@@ -9,9 +9,11 @@ import MapPin from "@/components/fundations/icons/MapPin.astro";
 import Phone from "@/components/fundations/icons/Phone.astro";
 import Envelpe from "@/components/fundations/icons/Envelope.astro";
 const contactDetails = {
-  email: "hello@bastion.com",
-  phone: "+1 (555) 123-4567",
-  address: "123 Market Street, Suite 500\nSan Francisco, CA 94103",
+  email: "admin@a1electrical.co.nz",
+  phone: "021 453 193",
+  afterHours: "03 453 0415",
+  address: "405 Kaikorai Valley Road\nDunedin 9011",
+  hours: "Monday - Friday: 7:30 AM - 5:00 PM",
 };
 const contactItems = [
   {
@@ -22,7 +24,13 @@ const contactItems = [
   {
     label: "Phone",
     value: [contactDetails.phone],
-    href: `tel:${contactDetails.phone.replace(/[^\d+]/g, "")}`,
+    href: `tel:${contactDetails.phone.replace(/\s/g, "")}`,
+    icon: "phone",
+  },
+  {
+    label: "After Hours",
+    value: [contactDetails.afterHours],
+    href: `tel:${contactDetails.afterHours.replace(/\s/g, "")}`,
     icon: "phone",
   },
   {
@@ -44,12 +52,10 @@ const contactItems = [
           variant="displaySM"
           class="font-medium tracking-tight text-base-900 mt-12 text-balance"
         >
-          Contact our construction experts today.
+          Contact your local electrical experts today.
         </Text>
         <Text tag="p" variant="textLG" class="text-base-600 mt-4">
-          Whether you have a question, need more details about our services, or
-          want to discuss a potential collaboration, we're here to help. Fill
-          out the form and we'll respond as soon as possible.
+          Whether you need a quote for a new project, have questions about our services, or require urgent assistance, we're here to help. Fill out the form and we'll get back to you promptly.
         </Text>
         <div class="mt-12 space-y-8 border-t border-base-200 pt-8">
           {
@@ -68,7 +74,7 @@ const contactItems = [
                   <Text
                     tag="p"
                     variant="textBase"
-                    class="font-medium  text-base-900"
+                    class="font-medium text-base-900"
                   >
                     {item.label}
                   </Text>
@@ -101,6 +107,21 @@ const contactItems = [
               </div>
             ))
           }
+          <div class="flex items-start gap-4">
+            <span class="flex size-10 items-center justify-center rounded-full bg-accent-500/10 text-accent-600">
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-accent-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </span>
+            <div class="space-y-1">
+              <Text tag="p" variant="textBase" class="font-medium text-base-900">
+                Office Hours
+              </Text>
+              <Text tag="p" variant="textBase" class="text-base-700 leading-relaxed">
+                {contactDetails.hours}
+              </Text>
+            </div>
+          </div>
         </div>
       </div>
       <form class="bg-accent-950 rounded p-8">
@@ -109,19 +130,15 @@ const contactItems = [
           variant="textLG"
           class="font-medium tracking-tight text-white"
         >
-          Send us a message
+          Request a quote
         </Text>
         <Text tag="p" variant="textBase" class="text-base-400 mt-1">
-          Share a few details and our team will reach out within one business
-          day.
+          Share a few details and our team will reach out within one business day.
         </Text>
         <div class="space-y-4 mt-12">
           <div class="space-y-2">
             <label for="contact-name" class="text-sm text-base-400 block">
-              Name<span
-                aria-hidden="true"
-                class="text-accent-500 pointer-events-none">*</span
-              >
+              Name<span aria-hidden="true" class="text-accent-500 pointer-events-none">*</span>
             </label>
             <input
               id="contact-name"
@@ -133,11 +150,33 @@ const contactItems = [
             />
           </div>
           <div class="space-y-2">
+            <label for="contact-company" class="text-sm text-base-400 block">
+              Company (optional)
+            </label>
+            <input
+              id="contact-company"
+              type="text"
+              name="company"
+              autocomplete="organization"
+              class="w-full rounded border-white/15 bg-accent-950 px-4 py-3 h-12 text-white focus:border-accent-500 focus:ring-2 focus:ring-accent-500 duration-300 transition-all focus:border-transparent focus:outline-none"
+            />
+          </div>
+          <div class="space-y-2">
+            <label for="contact-phone" class="text-sm text-base-400 block">
+              Phone<span aria-hidden="true" class="text-accent-500 pointer-events-none">*</span>
+            </label>
+            <input
+              id="contact-phone"
+              type="tel"
+              name="phone"
+              required
+              autocomplete="tel"
+              class="w-full rounded border-white/15 bg-accent-950 px-4 py-3 h-12 text-white focus:border-accent-500 focus:ring-2 focus:ring-accent-500 duration-300 transition-all focus:border-transparent focus:outline-none"
+            />
+          </div>
+          <div class="space-y-2">
             <label for="contact-email" class="text-sm text-base-400 block">
-              Email<span
-                aria-hidden="true"
-                class="text-accent-500 pointer-events-none">*</span
-              >
+              Email<span aria-hidden="true" class="text-accent-500 pointer-events-none">*</span>
             </label>
             <input
               id="contact-email"
@@ -156,13 +195,14 @@ const contactItems = [
               id="contact-message"
               name="message"
               rows="5"
+              placeholder="Tell us about your project..."
               class="w-full rounded border-white/15 bg-accent-950 px-4 py-3 text-white focus:border-accent-500 focus:ring-2 focus:ring-accent-500 duration-300 transition-all focus:border-transparent focus:outline-none"
             ></textarea>
           </div>
         </div>
 
         <Button size="lg" type="submit" variant="muted" class="w-full mt-8">
-          Submit
+          Submit Request
         </Button>
       </form>
     </div>
