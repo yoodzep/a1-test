@@ -22,7 +22,7 @@ services.sort((a, b) => {
       <div class="max-w-3xl">
         <Kicker class="text-base-600">Professional electrical services for every need</Kicker>
         <Text
-          tag="h1"
+          tag="h2"
           variant="displayMD"
           class="font-medium tracking-tight text-balance text-accent-900 mt-6"
         >
@@ -31,17 +31,17 @@ services.sort((a, b) => {
         <Text tag="p" variant="textLG" class="text-base-600 mt-4">
           From new builds to repairs, we handle all your electrical needs with expert care and attention to detail.
         </Text>
-        <Button
-          isLink
-          size="base"
-          variant="muted"
-          href="/services"
-          class="mt-8 w-fit">View all services</Button
-        >
       </div>
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-3 mt-12 gap-x-8 gap-y-12">
       {services.slice(0, 3).map((service) => <ServiceCard service={service} />)}
     </div>
+    <Button
+      isLink
+      size="base"
+      variant="muted"
+      href="/services"
+      class="mt-12 w-fit">View all services</Button
+    >
   </Wrapper>
 </section>
