@@ -7,8 +7,17 @@ import Favicons from "@/components/fundations/head/Favicons.astro";
 import FuseJS from "@/components/fundations/scripts/FuseJS.astro";
 import KeenSlider from "@/components/fundations/scripts/KeenSlider.astro";
 
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const { title, description, canonical, image, noindex } = Astro.props;
 ---
-<Seo />
+<Seo title={title} description={description} canonical={canonical} image={image} noindex={noindex} />
 <Meta />
 <Fonts />
 <Favicons />

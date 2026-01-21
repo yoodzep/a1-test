@@ -5,16 +5,26 @@ import Text from "@/components/fundations/elements/Text.astro";
 import Kicker from "@/components/fundations/elements/Kicker.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 const { frontmatter } = Astro.props;
+
+// SEO
+const seoTitle = `${frontmatter.page} - A1 Electrical`;
+const seoDescription = frontmatter.page === "Privacy Policy"
+  ? "A1 Electrical's privacy policy. Learn how we collect, use, and protect your personal information."
+  : "A1 Electrical's terms and conditions for electrical services in Dunedin and Otago.";
 ---
 
-<BaseLayout navTransparent={true}>
+<BaseLayout
+  title={seoTitle}
+  description={seoDescription}
+  navTransparent={true}
+>
   <section class="bg-accent-800">
     <Wrapper
       variant="standard"
       class="py-12 pt-48 lg:border-x lg:border-white/10"
     >
       <div class="max-w-xl mx-auto text-center text-balance lg:col-span-2">
-        <Kicker class="text-base-300">LEgal</Kicker>
+        <Kicker class="text-base-300">Legal</Kicker>
         <Text
           tag="h1"
           variant="displayMD"

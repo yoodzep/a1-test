@@ -5,17 +5,18 @@ import { Image } from "astro:assets";
 import Text from "@/components/fundations/elements/Text.astro";
 import UnderlinedLink from "@/components/fundations/elements/UnderlinedLink.astro";
 // Content
-const { title, description, url, image } = {
+const { title, description, url, image, imageAlt } = {
   url: "/blog/posts/" + Astro.props.post.slug,
   title: Astro.props.post.data.title,
   description: Astro.props.post.data.description,
   image: Astro.props.post.data.image.url,
+  imageAlt: Astro.props.post.data.image.alt || Astro.props.post.data.title,
 };
 ---
 <article>
   <Image
     src={image}
-    alt={title}
+    alt={imageAlt}
     width={1000}
     height={100}
     loading="lazy"

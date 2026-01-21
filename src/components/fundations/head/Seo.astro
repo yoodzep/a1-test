@@ -1,21 +1,46 @@
 ---
 import { AstroSeo } from "@astrolib/seo";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const siteUrl = "https://a1electrical.co.nz";
+const defaultTitle = "A1 Electrical Constructions - Master Electricians Dunedin";
+const defaultDescription = "Master Electricians in Dunedin with 40+ years experience. Residential, commercial & industrial electrical services. Free quotes. Call 021 453 193.";
+
+const {
+  title = defaultTitle,
+  description = defaultDescription,
+  canonical,
+  image = "/og-image.jpg",
+  noindex = false,
+} = Astro.props;
+
+const canonicalUrl = canonical || (Astro.url.pathname === "/" ? siteUrl : `${siteUrl}${Astro.url.pathname.replace(/\/$/, "")}`);
+const imageUrl = image.startsWith("http") ? image : `${siteUrl}${image}`;
 ---
 
 <AstroSeo
-  title="A1 Electrical Constructions - Master Electricians Dunedin"
-  description="A1 Electrical Constructions - Your trusted Master Electricians in Dunedin. Over 40 years experience in residential, commercial and industrial electrical services."
-  canonical="https://a1electrical.co.nz"
+  title={title}
+  description={description}
+  canonical={canonicalUrl}
+  noindex={noindex}
+  nofollow={noindex}
   openGraph={{
-    url: "https://a1electrical.co.nz",
-    title: "A1 Electrical Constructions - Master Electricians Dunedin",
-    description: "A1 Electrical Constructions - Your trusted Master Electricians in Dunedin. Over 40 years experience in residential, commercial and industrial electrical services.",
+    url: canonicalUrl,
+    title: title,
+    description: description,
     images: [
       {
-        url: "https://a1electrical.co.nz/og-image.jpg",
+        url: imageUrl,
         width: 1200,
         height: 630,
-        alt: "A1 Electrical Constructions",
+        alt: title,
         type: "image/jpeg",
       },
     ],
