@@ -1,6 +1,9 @@
 ---
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
 // Sections
 import Hero from "@/components/about/Hero.astro";
 import Expertise from "@/components/about/Expertise.astro";
@@ -16,4 +19,27 @@ import Testimonials from "@/components/customers/Testimonials.astro";
   <Expertise />
   <WhatWeDo />
   <Testimonials />
+
+  <section class="bg-accent-600">
+    <Wrapper variant="standard" class="py-20">
+      <div class="text-center">
+        <Text
+          tag="h2"
+          variant="displayMD"
+          class="text-white font-medium italic tracking-tight"
+        >
+          Discover How We Can Help
+        </Text>
+        <Button
+          isLink
+          size="base"
+          variant="muted"
+          href="/services"
+          class="w-fit mt-8 mx-auto"
+        >
+          Explore Our Expertise
+        </Button>
+      </div>
+    </Wrapper>
+  </section>
 </BaseLayout>
