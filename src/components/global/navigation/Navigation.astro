@@ -61,7 +61,8 @@ const navLinks = [
       <div class="hidden lg:flex gap-2 items-center ml-auto">
         <a
           href="tel:021453193"
-          class={`text-sm font-medium transition hover:opacity-80 ${isTransparent ? "text-white" : "text-base-800"}`}
+          class={`text-sm font-medium transition hover:opacity-80 ${isTransparent ? "text-white" : "text-[#122c3f]"}`}
+          data-phone-link
         >
           021 453 193
         </a>
@@ -174,6 +175,7 @@ const navLinks = [
       const navEl = document.querySelector("[data-nav]");
       const logoEl = document.querySelector("[data-logo]");
       const primaryLinks = document.querySelectorAll("[data-primary-link]");
+      const phoneLink = document.querySelector("[data-phone-link]");
       // Swap between light and dark text classes
       // Only enable color swap on the homepage
       const enableScrollSwap = navEl && navEl.dataset.swap === "true";
@@ -182,12 +184,18 @@ const navLinks = [
         el.classList.remove("text-white", "text-base-800");
         el.classList.add(scrolled ? "text-base-800" : "text-white");
       };
+      const swapPhoneColor = (el, scrolled) => {
+        if (!el) return;
+        el.classList.remove("text-white", "text-[#122c3f]");
+        el.classList.add(scrolled ? "text-[#122c3f]" : "text-white");
+      };
       const handleScroll = () => {
         if (!enableScrollSwap) return;
         const scrolled = window.scrollY > 0;
         if (navEl) navEl.classList.toggle("bg-white", scrolled);
         swapColor(logoEl, scrolled);
         primaryLinks.forEach((el) => swapColor(el, scrolled));
+        swapPhoneColor(phoneLink, scrolled);
         // Mobile icons
         swapColor(burger, scrolled);
         swapColor(close, scrolled);
@@ -200,6 +208,7 @@ const navLinks = [
         if (navEl) navEl.classList.add("bg-white");
         swapColor(logoEl, true);
         primaryLinks.forEach((el) => swapColor(el, true));
+        swapPhoneColor(phoneLink, true);
         swapColor(burger, true);
         swapColor(close, true);
       }

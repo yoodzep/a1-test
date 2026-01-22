@@ -3,7 +3,7 @@
 import { Image } from "astro:assets";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
-import UnderlinedLink from "@/components/fundations/elements/UnderlinedLink.astro";
+import Button from "@/components/fundations/elements/Button.astro";
 // Content
 const { title, description, url, image, imageAlt } = {
   url: "/blog/posts/" + Astro.props.post.slug,
@@ -30,13 +30,16 @@ const { title, description, url, image, imageAlt } = {
     <Text tag="p" variant="textBase" class="text-base-600 mt-1"
       >{description}</Text
     >
-    <UnderlinedLink
+    <Button
+      isLink
+      size="base"
+      variant="muted"
       href={url}
       title={`Read more: ${title}`}
       aria-label={`Read blog post: ${title}`}
-      class="mt-4"
+      class="w-fit mt-4"
     >
-      Read further
-    </UnderlinedLink>
+      Learn more
+    </Button>
   </div>
 </article>

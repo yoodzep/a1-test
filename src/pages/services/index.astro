@@ -4,6 +4,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 import Kicker from "@/components/fundations/elements/Kicker.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Button from "@/components/fundations/elements/Button.astro";
 // Sections
 import Principles from "@/components/services/Principles.astro";
 import Testimonials from "@/components/customers/Testimonials.astro";
@@ -12,10 +13,20 @@ import ServiceCard from "@/components/services/ServiceCard.astro";
 // Content
 import { getCollection } from "astro:content";
 const services = await getCollection("services");
+const serviceOrder = [
+  "new-builds",
+  "alterations-renovations",
+  "electrical-rewiring",
+  "heat-pump-installation",
+  "electrical-inspections",
+  "smart-home-outdoor",
+  "commercial-electrical",
+  "power-line-wraps",
+];
 services.sort((a, b) => {
-  const featuredDiff = (b.data.featured ? 1 : 0) - (a.data.featured ? 1 : 0);
-  if (featuredDiff !== 0) return featuredDiff;
-  return a.data.title.localeCompare(b.data.title);
+  const aIndex = serviceOrder.indexOf(a.slug);
+  const bIndex = serviceOrder.indexOf(b.slug);
+  return aIndex - bIndex;
 });
 ---
 
@@ -49,11 +60,41 @@ services.sort((a, b) => {
 
   <section>
     <Wrapper variant="standard" class="py-24">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-24">
+      <Text
+        tag="h2"
+        variant="displayMD"
+        class="font-medium tracking-tight text-accent-900 mb-12"
+      >
+        Electrical Services You Can Trust
+      </Text>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
         {services.map((service) => <ServiceCard service={service} />)}
       </div>
     </Wrapper>
   </section>
   <Principles />
   <Testimonials />
+
+  <section class="bg-accent-600">
+    <Wrapper variant="standard" class="py-20">
+      <div class="text-center">
+        <Text
+          tag="h2"
+          variant="displayMD"
+          class="text-white font-medium italic tracking-tight"
+        >
+          Start Your Project Today
+        </Text>
+        <Button
+          isLink
+          size="base"
+          variant="muted"
+          href="/contact"
+          class="w-fit mt-8 mx-auto"
+        >
+          Consult Our Experts
+        </Button>
+      </div>
+    </Wrapper>
+  </section>
 </BaseLayout>
