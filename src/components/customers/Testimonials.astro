@@ -98,12 +98,12 @@ const testimonials = [
                   width={500}
                   height={800}
                   src={testimonial.avatar}
-                  alt={`${testimonial.author} project`}
+                  alt={`Electrical project completed for ${testimonial.author}, ${testimonial.role} in ${testimonial.location}`}
                   loading="lazy"
                   decoding="async"
                   class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                 />
-                <div class="absolute inset-0 flex flex-col justify-between bg-accent-900 p-8 opacity-0 transition duration-300 group-hover:opacity-100">
+                <div class="absolute inset-0 flex flex-col justify-between bg-accent-900/80 p-8 opacity-0 transition duration-300 group-hover:opacity-100">
                   <div class="flex items-center gap-1">
                     {Array.from({ length: 5 }).map((_, index) => (
                       <Star aria-hidden="true" class="size-4 text-accent-400" />

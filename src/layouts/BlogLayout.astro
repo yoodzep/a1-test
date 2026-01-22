@@ -17,9 +17,19 @@ const allPosts = await getCollection("posts");
 const relatedPosts = allPosts.filter((post) =>
   post.data.tags.some((tag) => frontmatter.tags.includes(tag))
 );
+
+// SEO
+const seoTitle = `${frontmatter.title} - A1 Electrical Blog`;
+const seoDescription = frontmatter.description.length > 160
+  ? frontmatter.description.substring(0, 157) + "..."
+  : frontmatter.description;
 ---
 
-<BaseLayout navTransparent={true}>
+<BaseLayout
+  title={seoTitle}
+  description={seoDescription}
+  navTransparent={true}
+>
   <section class="bg-accent-800">
     <Wrapper
       variant="standard"

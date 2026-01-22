@@ -10,7 +10,10 @@ const allPosts = await getCollection("posts");
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="Blog Topics - A1 Electrical"
+  description="Browse electrical articles by topic. Find tips on safety, energy efficiency, home improvements, and more from A1 Electrical Dunedin."
+>
   <section>
     <Wrapper variant="standard" class="py-24 lg:pt-48">
       <div class="max-w-xl mx-auto text-center text-balance">

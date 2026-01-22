@@ -7,14 +7,16 @@ import Intro from "@/components/landing/Intro.astro";
 import WhatWeDo from "@/components/landing/WhatWeDo.astro";
 import ServicesPreview from "@/components/services/ServicesPreview.astro";
 import Stats from "@/components/landing/Stats.astro";
-import Testimonials from "@/components/customers/Testimonials.astro";
 ---
 
-<BaseLayout navTransparent={true}>
+<BaseLayout
+  title="A1 Electrical Constructions - Master Electricians Dunedin"
+  description="Master Electricians in Dunedin with 40+ years experience. Residential, commercial & industrial electrical services. Free quotes. Call 021 453 193."
+  navTransparent={true}
+>
   <Hero />
   <Intro />
   <WhatWeDo />
   <ServicesPreview />
   <Stats />
-  <Testimonials />
 </BaseLayout>

@@ -25,9 +25,13 @@ export async function getStaticPaths() {
 }
 const { tag } = Astro.params;
 const { posts } = Astro.props;
+const capitalizedTag = tag.charAt(0).toUpperCase() + tag.slice(1);
 ---
 
-<BaseLayout>
+<BaseLayout
+  title={`${capitalizedTag} Articles - A1 Electrical Blog`}
+  description={`Read our articles about ${tag}. Electrical tips and advice from A1 Electrical, Dunedin's trusted Master Electricians.`}
+>
   <section>
     <Wrapper variant="standard" class="py-24 lg:pt-48">
       <div class="max-w-xl mx-auto text-center text-balance">

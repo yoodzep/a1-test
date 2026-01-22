@@ -5,58 +5,334 @@ import Logo from "@/components/assets/Logo.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 import Kicker from "@/components/fundations/elements/Kicker.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-const stats = [
-  { value: "40+", label: "Years in business" },
-  { value: "1000+", label: "Projects completed" },
-  { value: "100%", label: "Customer focused" },
+import Button from "@/components/fundations/elements/Button.astro";
+const reasons = [
+  {
+    title: "Master Electricians Certified",
+    description: "EWRB licensed professionals with specialist certifications including heat pump installation and comprehensive safety qualifications.",
+  },
+  {
+    title: "Comprehensive Services",
+    description: "We handle all electrical projects from residential rewiring to commercial fitouts, including 24/7 emergency services.",
+  },
+  {
+    title: "Rapid Emergency Response",
+    description: "Fully equipped vehicles ready for rapid response throughout the Otago region, available to all our valued customers.",
+  },
+  {
+    title: "Proven Local Expertise",
+    description: "Trusted by Latitude Homes, DCC facilities, and local schools. Proud recipients of Contractor of the Year 2022.",
+  },
 ];
 ---
 
 <section class="bg-accent-950 relative overflow-hidden">
   <Wrapper
     variant="standard"
-    class="py-24 lg:py-48 lg:border-x lg:border-white/10"
+    class="py-24 lg:border-x lg:border-white/10"
   >
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-      <div>
-        <Logo class="h-20 w-auto" />
-        <Kicker class="text-base-400 mt-8">
-          Trusted by homeowners and businesses throughout Dunedin and Otago</Kicker
-        >
-      </div>
-      <div class="lg:col-span-2 text-pretty">
-        <Text
-          tag="h2"
-          variant="displayLG"
-          class="text-white font-medium tracking-tight"
-        >
-          From family homes to large commercial projects,
-          <span class="text-accent-400">
-            we deliver quality electrical solutions with the care and attention your project deserves.
-          </span>
-        </Text>
-        <Text tag="p" variant="textLG" class="text-base-400 mt-4">
-          Our team of qualified electricians brings expertise, professionalism, and genuine customer service to every job. We're proud to be Master Electricians with Gold SiteWise certification.
-        </Text>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-8 mt-12">
-          {
-            stats.map((stat) => (
-              <div>
-                <Text
-                  tag="p"
-                  variant="display2XL"
-                  class="text-white italic font-medium"
-                >
-                  {stat.value}
-                </Text>
-                <Text tag="p" variant="textLG" class="text-base-400 mt-1">
-                  {stat.label}
-                </Text>
-              </div>
-            ))
-          }
+    <div class="max-w-3xl">
+      <Kicker class="text-accent-300">Why Locals Choose A1 Electrical</Kicker>
+      <Text
+        tag="h2"
+        variant="displayLG"
+        class="text-white font-medium tracking-tight mt-6"
+      >
+        The trusted choice for <span class="text-[#4b92c4]">Dunedin</span> and <span class="text-[#4b92c4]">Otago electrical projects</span>
+      </Text>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+      {
+        reasons.map((reason) => (
+          <div class="border border-white/10 rounded-lg p-6">
+            <Text
+              tag="h3"
+              variant="textLG"
+              class="text-white font-medium"
+            >
+              {reason.title}
+            </Text>
+            <Text tag="p" variant="textBase" class="text-base-400 mt-2">
+              {reason.description}
+            </Text>
+          </div>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>
+
+<section class="bg-base-50">
+  <Wrapper variant="standard" class="py-24">
+    <div class="text-center">
+      <Text
+        tag="h2"
+        variant="displayLG"
+        class="text-accent-900 font-medium tracking-tight"
+      >
+        Rooted in Dunedin. Giving Back to Our Community.
+      </Text>
+      <Text tag="p" variant="textLG" class="text-base-600 mt-4">
+        We're proud to support our community beyond the job site.
+      </Text>
+      <Text
+        tag="h3"
+        variant="textXL"
+        class="text-accent-900 font-medium mt-12"
+      >
+        Local Sponsorship
+      </Text>
+      <div class="grid grid-cols-2 gap-16 mt-8 max-w-lg mx-auto">
+        <div class="flex flex-col items-center">
+          <img
+            src="https://cdn.prod.website-files.com/68a289841b16ba25d4f0a48b/68a3d0ebeb724e87f0e42cc0_taieri-squash-club.webp"
+            alt="Taieri Squash Club"
+            width={120}
+            height={120}
+            loading="lazy"
+            decoding="async"
+            class="h-24 w-auto object-contain max-w-[177px]"
+          />
+          <Text tag="p" variant="textBase" class="text-base-600 text-center mt-4">
+            Taieri Squash Club
+          </Text>
+        </div>
+        <div class="flex flex-col items-center">
+          <img
+            src="https://cdn.prod.website-files.com/68a289841b16ba25d4f0a48b/691faba7a8b84541e8415891_taieri-rugby-club.avif"
+            alt="Taieri Rugby Club"
+            width={120}
+            height={120}
+            loading="lazy"
+            decoding="async"
+            class="h-24 w-auto object-contain max-w-[177px]"
+          />
+          <Text tag="p" variant="textBase" class="text-base-600 text-center mt-4">
+            Taieri Rugby Club
+          </Text>
         </div>
       </div>
+      <hr class="border-base-200 mt-12 max-w-2xl mx-auto" />
+      <Text
+        tag="h3"
+        variant="textXL"
+        class="text-accent-900 font-medium mt-12"
+      >
+        Proud Members of
+      </Text>
+      <div class="grid grid-cols-2 gap-16 mt-8 max-w-lg mx-auto">
+        <div class="flex flex-col items-center">
+          <img
+            src="https://cdn.prod.website-files.com/68a289841b16ba25d4f0a48b/68a3d18bd374c4ce8b9959d8_bni.webp"
+            alt="BNI Dunedin Chapter"
+            width={120}
+            height={120}
+            loading="lazy"
+            decoding="async"
+            class="h-24 w-auto object-contain max-w-[177px]"
+          />
+          <Text tag="p" variant="textBase" class="text-base-600 text-center mt-4">
+            BNI Dunedin Chapter
+          </Text>
+        </div>
+        <div class="flex flex-col items-center">
+          <img
+            src="https://cdn.prod.website-files.com/68a289841b16ba25d4f0a48b/691facf8fd30e2d98b5c90cd_kuma.avif"
+            alt="Kuma Business Network"
+            width={120}
+            height={120}
+            loading="lazy"
+            decoding="async"
+            class="h-24 w-auto object-contain max-w-[177px]"
+          />
+          <Text tag="p" variant="textBase" class="text-base-600 text-center mt-4">
+            Kuma Business Network
+          </Text>
+        </div>
+      </div>
+      <hr class="border-base-200 mt-12 max-w-2xl mx-auto" />
+      <Text
+        tag="h3"
+        variant="textXL"
+        class="text-accent-900 font-medium mt-12"
+      >
+        Public Sectors
+      </Text>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mt-8 max-w-3xl mx-auto">
+        <div class="flex flex-col items-center">
+          <img
+            src="https://cdn.prod.website-files.com/68a289841b16ba25d4f0a48b/68a3e84cab3cbac5f4d5a451_image%2021.svg"
+            alt="Dunedin City Council"
+            width={120}
+            height={120}
+            loading="lazy"
+            decoding="async"
+            class="h-24 w-auto object-contain max-w-[177px]"
+          />
+          <Text tag="p" variant="textBase" class="text-base-600 text-center mt-4">
+            Dunedin City Council
+          </Text>
+        </div>
+        <div class="flex flex-col items-center">
+          <img
+            src="https://cdn.prod.website-files.com/68a289841b16ba25d4f0a48b/68a3e7fe3796d066d0b2b494_Group%2030.svg"
+            alt="Arthur Street School"
+            width={120}
+            height={120}
+            loading="lazy"
+            decoding="async"
+            class="h-24 w-auto object-contain max-w-[177px]"
+          />
+          <Text tag="p" variant="textBase" class="text-base-600 text-center mt-4">
+            Arthur Street School
+          </Text>
+        </div>
+        <div class="flex flex-col items-center">
+          <img
+            src="https://cdn.prod.website-files.com/68a289841b16ba25d4f0a48b/68a67017bb528653123bcb47_image%2051.avif"
+            alt="Grant's Braes School"
+            width={120}
+            height={120}
+            loading="lazy"
+            decoding="async"
+            class="h-24 w-auto object-contain max-w-[177px]"
+          />
+          <Text tag="p" variant="textBase" class="text-base-600 text-center mt-4">
+            Grant's Braes School
+          </Text>
+        </div>
+        <div class="flex flex-col items-center">
+          <img
+            src="https://cdn.prod.website-files.com/68a289841b16ba25d4f0a48b/68a3d1dae7f94af9aa1e4fcc_obhs-sports-dome.webp"
+            alt="OBHS Sports Dome"
+            width={120}
+            height={120}
+            loading="lazy"
+            decoding="async"
+            class="h-24 w-auto object-contain max-w-[177px]"
+          />
+          <Text tag="p" variant="textBase" class="text-base-600 text-center mt-4">
+            OBHS Sports Dome
+          </Text>
+        </div>
+      </div>
+      <hr class="border-base-200 mt-12 max-w-2xl mx-auto" />
+      <Text
+        tag="h3"
+        variant="textXL"
+        class="text-accent-900 font-medium mt-12"
+      >
+        Commercial Clients
+      </Text>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-12 mt-8 max-w-4xl mx-auto">
+        <div class="flex flex-col items-center">
+          <img
+            src="https://cdn.prod.website-files.com/68a289841b16ba25d4f0a48b/691fa6a1e40966d5a339be21_balmac-200.avif"
+            alt="No 7 Balmac"
+            width={120}
+            height={120}
+            loading="lazy"
+            decoding="async"
+            class="h-24 w-auto object-contain max-w-[177px]"
+          />
+          <Text tag="p" variant="textBase" class="text-base-600 text-center mt-4">
+            No 7 Balmac
+          </Text>
+        </div>
+        <div class="flex flex-col items-center">
+          <img
+            src="https://cdn.prod.website-files.com/68a289841b16ba25d4f0a48b/68b006ad7fbca6c166c26ce3_latitude-homes.svg"
+            alt="Latitude Homes"
+            width={120}
+            height={120}
+            loading="lazy"
+            decoding="async"
+            class="h-24 w-auto object-contain max-w-[177px]"
+          />
+          <Text tag="p" variant="textBase" class="text-base-600 text-center mt-4">
+            Latitude Homes
+          </Text>
+        </div>
+        <div class="flex flex-col items-center">
+          <img
+            src="https://cdn.prod.website-files.com/68a289841b16ba25d4f0a48b/68cba6eb230144811a789f88_built-smart.avif"
+            alt="Built Smart"
+            width={120}
+            height={120}
+            loading="lazy"
+            decoding="async"
+            class="h-24 w-auto object-contain max-w-[177px]"
+          />
+          <Text tag="p" variant="textBase" class="text-base-600 text-center mt-4">
+            Built Smart
+          </Text>
+        </div>
+        <div class="flex flex-col items-center">
+          <img
+            src="https://cdn.prod.website-files.com/68a289841b16ba25d4f0a48b/68a3cdb193dbbc1e8e4c0c5c_gj-gardner.webp"
+            alt="G J Gardner"
+            width={120}
+            height={120}
+            loading="lazy"
+            decoding="async"
+            class="h-24 w-auto object-contain max-w-[177px]"
+          />
+          <Text tag="p" variant="textBase" class="text-base-600 text-center mt-4">
+            G J Gardner
+          </Text>
+        </div>
+        <div class="flex flex-col items-center">
+          <img
+            src="https://cdn.prod.website-files.com/68a289841b16ba25d4f0a48b/68a3cdb19fab4ba170f28ea8_columbs-co.webp"
+            alt="Columbs & Co"
+            width={120}
+            height={120}
+            loading="lazy"
+            decoding="async"
+            class="h-24 w-auto object-contain max-w-[177px]"
+          />
+          <Text tag="p" variant="textBase" class="text-base-600 text-center mt-4">
+            Columbs & Co
+          </Text>
+        </div>
+        <div class="flex flex-col items-center">
+          <img
+            src="https://cdn.prod.website-files.com/68a289841b16ba25d4f0a48b/68a3cdb1eabebbb650c2d344_embark-accounting.webp"
+            alt="Embark Accounting"
+            width={120}
+            height={120}
+            loading="lazy"
+            decoding="async"
+            class="h-24 w-auto object-contain max-w-[177px]"
+          />
+          <Text tag="p" variant="textBase" class="text-base-600 text-center mt-4">
+            Embark Accounting
+          </Text>
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</section>
+
+<section class="bg-accent-600">
+  <Wrapper variant="standard" class="py-20">
+    <div class="text-center">
+      <Text
+        tag="h2"
+        variant="displayMD"
+        class="text-white font-medium italic tracking-tight"
+      >
+        Learn How We Can Help You
+      </Text>
+      <Button
+        isLink
+        size="base"
+        variant="muted"
+        href="/about"
+        class="w-fit mt-8 mx-auto"
+      >
+        Get to Know Us
+      </Button>
     </div>
   </Wrapper>
 </section>
